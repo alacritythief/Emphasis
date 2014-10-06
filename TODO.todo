@@ -1,8 +1,7 @@
 EMPHASIS TODO list
 ==================
 
-* Create basic models: Comics, Pages, Elements
-* Create basic schema with migrations
+* Basic views, forms
 * Allow the upload of elements
 
 
@@ -10,3 +9,5 @@ COMPLETED
 =========
 
 * ER Diagram
+* Create basic models: Comics, Pages, Elements
+* Create basic schema with migrations
