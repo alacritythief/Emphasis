@@ -3,6 +3,11 @@ class ComicsController < ApplicationController
     @comics = Comic.all.order(created_at: :desc)
   end
 
+  def show
+    @comic = Comic.find(params[:id])
+    @pages = @comic.pages.order(number: :asc)
+  end
+
   def new
     @comic = Comic.new
   end

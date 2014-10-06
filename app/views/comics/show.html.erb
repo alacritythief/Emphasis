@@ -1,0 +1,14 @@
+<h1><%= @comic.name %></h1>
+<p>By <%= @comic.creators %></p>
+<p>Description: <%= @comic.description %></p>
+
+<ul>
+  <% @pages.each do |page| %>
+    <li>
+      <p><%= link_to "Page #{page.number}", comic_page_path(@comic, page) %></p>
+      <p><%= page.name %></p>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back to Comics', comics_path %>

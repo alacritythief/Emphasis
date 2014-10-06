@@ -8,7 +8,7 @@
   <% @comics.each do |comic| %>
     <ul>
       <li>
-        <p><strong><%= comic.name %></strong></p>
+        <p><strong><%= link_to comic.name, comic %></strong></p>
         <p><%= comic.description %></p>
         <p>Created by: <%= comic.creators %></p>
       </li>

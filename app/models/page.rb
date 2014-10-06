@@ -3,5 +3,5 @@ class Page < ActiveRecord::Base
   has_many :elements
 
   validates :number, presence: true
-  validates :type, presence: true, length: { maximum: 10 }
+  validates :page_type, presence: true, length: { maximum: 10 }
 end
