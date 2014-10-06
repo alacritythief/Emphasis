@@ -8,6 +8,8 @@ class CreateElements < ActiveRecord::Migration
       t.integer :y
       t.integer :z
       t.string :animation_type, null: false, default: "none"
+
+      t.timestamps
     end
   end
 end

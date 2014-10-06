@@ -1,0 +1,19 @@
+<h1>(User's) Comics:</h1>
+
+<% if @comics.empty? %>
+  <ul>
+    <li>No comics yet! Make one!</li>
+  </ul>
+<% else %>
+  <% @comics.each do |comic| %>
+    <ul>
+      <li>
+        <p><strong><%= link_to comic.name, comic %></strong></p>
+        <p><%= comic.description %></p>
+        <p>Created by: <%= comic.creators %></p>
+      </li>
+    </ul>
+  <% end %>
+<%end%>
+
+<p><%= link_to 'Add a Comic', new_comic_path %></p>

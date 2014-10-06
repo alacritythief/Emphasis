@@ -1,0 +1,35 @@
+<h1>Create a Comic</h1>
+
+<%= form_for @comic do |f| %>
+
+  <% if @comic.errors.any? %>
+    <h3><%= pluralize(@comic.errors.count, "error") %> prohibited this comic from being added:</h3>
+    <ul>
+      <% @comic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :creators %>
+    <%= f.text_field :creators %>
+  </p>
+
+  <p>
+    <%= f.submit 'Add Comic' %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back to Comics', comics_path %>

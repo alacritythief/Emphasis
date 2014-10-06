@@ -11,32 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006183118) do
+ActiveRecord::Schema.define(version: 20141006213841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comics", force: true do |t|
-    t.string "name",        null: false
-    t.text   "description"
-    t.text   "creators",    null: false
+    t.string   "name",        null: false
+    t.string   "creators",    null: false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "elements", force: true do |t|
-    t.string  "image_url",                       null: false
-    t.string  "alt_text"
-    t.text    "notes"
-    t.integer "x"
-    t.integer "y"
-    t.integer "z"
-    t.string  "animation_type", default: "none", null: false
+    t.string   "image_url",                       null: false
+    t.string   "alt_text"
+    t.text     "notes"
+    t.integer  "x"
+    t.integer  "y"
+    t.integer  "z"
+    t.string   "animation_type", default: "none", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "id_name"
+    t.integer  "page_id",                         null: false
   end
 
   create_table "pages", force: true do |t|
-    t.integer "chapter"
-    t.integer "name"
-    t.integer "number",                     null: false
-    t.boolean "is_chapter", default: false, null: false
+    t.integer  "chapter"
+    t.string   "name"
+    t.integer  "number",                      null: false
+    t.string   "page_type",  default: "page", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "comic_id"
   end
 
 end
