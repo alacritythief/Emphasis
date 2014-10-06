@@ -24,9 +24,11 @@ class PagesController < ApplicationController
   end
 
   def edit
+    # Edit goes here
   end
 
   def destroy
+    # Delete goes here
   end
 
   private

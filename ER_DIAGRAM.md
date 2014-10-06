@@ -23,10 +23,10 @@
 |         Comics           |                   |            Pages               |
 +--------------------------+                   +--------------------------------+
 |                          |                   |                                |
-|     Comic.name           |            +------>    Page.chapter                |
-|     Comic.description    |            |      |    Page.name                   |
-|     Comic.creators       <------------------->    Page.number                 |
-|     Comic.user_ids       |            |      |    Page.type, default: 'page'  |
+|     Comic.name           |            +------> Page.chapter                   |
+|     Comic.description    |            |      | Page.name                      |
+|     Comic.creators       <-------------------> Page.number                    |
+|     Comic.user_ids       |            |      | Page.page_type, default:'page' |
 |                          |            +------>                                |
 |   Comic has many pages   |                   |     Page has many Elements     |
 |   Belongs to user(s)     |                   |     Belongs to Comic           |
@@ -46,7 +46,8 @@
                   |     Element.x                       |      |     |
                   |     Element.y                       <------------+
                   |     Element.z                       |      |
-                  |     Element.animation_type          <------+
+                  |     Element.animation_type          |      |
+                  |     Element.page_id                 <------+
                   |                                     |
                   |     Additional Element variables    |
                   |                                     |

@@ -25,9 +25,11 @@ class ComicsController < ApplicationController
   end
 
   def edit
+    # Edit goes here
   end
 
   def destroy
+    # Deletion goes here
   end
 
   private

@@ -3,7 +3,7 @@
 <%= form_for @comic do |f| %>
 
   <% if @comic.errors.any? %>
-    <h3><%= pluralize(@manufacturer.errors.count, "error") %> prohibited this comic from being added:</h3>
+    <h3><%= pluralize(@comic.errors.count, "error") %> prohibited this comic from being added:</h3>
     <ul>
       <% @comic.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
