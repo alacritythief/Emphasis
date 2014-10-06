@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
+gem 'unicorn'
+gem 'kaminari'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -39,9 +45,12 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'pry-rails'
-  gem 'launchy'
+  gem "rspec-rails"
+  gem "capybara"
+  gem "pry-rails"
+  gem "factory_girl_rails", "~> 4.0"
+  gem "launchy"
+  gem "nyan-cat-formatter"
+  gem "dotenv-rails"
+  gem "quiet_assets"
 end
