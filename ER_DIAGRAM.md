@@ -1,5 +1,4 @@
 ```
-
                                  EMPHASIS
                                  ========
 
@@ -10,12 +9,12 @@
                        |      User.name            |
                        |      User.password        |
             +---------->      User.email           |
+            |          |      User.role            |
             |          |      Devise stuff         |
             |          |                           |
             |          |    User has many comics   |
             |          |                           |
             |          +---------------------------+
-            |
             |
          +-----+
          |  |  |
@@ -53,5 +52,4 @@
                   |           Belongs to Page           |
                   |                                     |
                   +-------------------------------------+
-
 ```
