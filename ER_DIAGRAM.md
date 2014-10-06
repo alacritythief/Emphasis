@@ -39,6 +39,7 @@
                   |              Elements               |            |
                   +-------------------------------------+            |
                   |                                     |            |
+                  |     Element.id_name                 |            |
                   |     Element.image_url               |            |
                   |     Element.alt_text                |            |
                   |     Element.notes                   <------+     |
