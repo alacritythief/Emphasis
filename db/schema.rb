@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20141006183118) do
   create_table "pages", force: true do |t|
     t.integer "chapter"
     t.integer "name"
-    t.integer "number",                     null: false
-    t.boolean "is_chapter", default: false, null: false
+    t.integer "number",                   null: false
+    t.string  "type",    default: "page", null: false
   end
 
 end

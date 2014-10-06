@@ -26,7 +26,7 @@
 |     Comic.name           |            +------>    Page.chapter                |
 |     Comic.description    |            |      |    Page.name                   |
 |     Comic.creators       <------------------->    Page.number                 |
-|     Comic.user_ids       |            |      |    Page.is_chapter? boolean    |
+|     Comic.user_ids       |            |      |    Page.type, default: 'page'  |
 |                          |            +------>                                |
 |   Comic has many pages   |                   |     Page has many Elements     |
 |   Belongs to user(s)     |                   |     Belongs to Comic           |

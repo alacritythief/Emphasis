@@ -4,7 +4,7 @@ class CreatePages < ActiveRecord::Migration
       t.integer :chapter
       t.integer :name
       t.integer :number, null: false
-      t.boolean :is_chapter, null: false, default: false
+      t.string :type, null: false, default: 'page'
     end
   end
 end
