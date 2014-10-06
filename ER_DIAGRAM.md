@@ -27,7 +27,8 @@
 |     Comic.description    |            |      | Page.name                      |
 |     Comic.creators       <-------------------> Page.number                    |
 |     Comic.user_ids       |            |      | Page.page_type, default:'page' |
-|                          |            +------>                                |
+|                          |            +------> Page.comic_id                  |
+|                          |                   |                                |
 |   Comic has many pages   |                   |     Page has many Elements     |
 |   Belongs to user(s)     |                   |     Belongs to Comic           |
 |                          |                   |                                |
