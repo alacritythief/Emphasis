@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20141006183118) do
 
   create_table "comics", force: true do |t|
     t.string   "name",        null: false
+    t.string   "creators",    null: false
     t.text     "description"
-    t.text     "creators",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
