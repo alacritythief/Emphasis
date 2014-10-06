@@ -4,6 +4,8 @@ class CreateComics < ActiveRecord::Migration
       t.string :name, null: false
       t.text :description
       t.text :creators, null: false
+
+      t.timestamps
     end
   end
 end

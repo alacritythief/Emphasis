@@ -5,6 +5,8 @@ class CreatePages < ActiveRecord::Migration
       t.integer :name
       t.integer :number, null: false
       t.string :type, null: false, default: 'page'
+
+      t.timestamps
     end
   end
 end
