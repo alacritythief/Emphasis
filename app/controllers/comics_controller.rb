@@ -4,7 +4,7 @@ class ComicsController < ApplicationController
   end
 
   def show
-    @comic = Comic.find(params[:id])
+    @comic = Comic.where(name: params[:id]).first
     @pages = @comic.pages.order(number: :asc)
   end
 

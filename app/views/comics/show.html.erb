@@ -5,7 +5,7 @@
 <ul>
   <% @pages.each do |page| %>
     <li>
-      <p><%= link_to "Page #{page.number}", comic_page_path(@comic, page) %></p>
+      <p><%= link_to "Page #{page.number}", comic_page_path(@comic.name, page.number) %></p>
       <p><%= page.name %></p>
     </li>
   <% end %>
