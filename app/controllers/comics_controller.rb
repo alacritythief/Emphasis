@@ -4,7 +4,7 @@ class ComicsController < ApplicationController
   end
 
   def show
-    @comic = Comic.find(params[:id])
+    @comic = Comic.includes(:pages).find(params[:id])
     @pages = @comic.pages.order(number: :asc)
   end
 
@@ -30,10 +30,6 @@ class ComicsController < ApplicationController
 
   def destroy
     # Deletion goes here
-  end
-
-  def to_param
-    "#{name}"
   end
 
   private

@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def show
-    @comic = Comic.find(params[:comic_id])
-    @page = Page.find(params[:id])
+    @comic = Comic.includes(:pages).find(params[:comic_id])
+    @page = @comic.pages.find(params[:id])
   end
 
   def new
