@@ -1,4 +1,10 @@
 class ElementsController < ApplicationController
+  def index
+    @comic = Comic.find(params[:comic_id])
+    @page = Page.includes(:elements).find(params[:page_id])
+    @elements = @page.elements
+  end
+
   def new
     @element = Element.new
     @comic = Comic.find(params[:comic_id])
@@ -17,7 +23,14 @@ class ElementsController < ApplicationController
     else
       flash[:alert] = "Warning: Element not created"
       render :new
-    end  end
+    end
+  end
+
+  def edit
+    @comic = Comic.find(params[:comic_id])
+    @page = Page.find(params[:page_id])
+    @element = Element.find(params[:id])
+  end
 
   private
 

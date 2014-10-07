@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006213841) do
+ActiveRecord::Schema.define(version: 20141007164148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20141006213841) do
     t.integer  "page_id",                         null: false
   end
 
+  add_index "elements", ["page_id"], name: "index_elements_on_page_id", using: :btree
+
   create_table "pages", force: true do |t|
     t.integer  "chapter"
     t.string   "name"
@@ -47,5 +49,7 @@ ActiveRecord::Schema.define(version: 20141006213841) do
     t.datetime "updated_at"
     t.integer  "comic_id"
   end
+
+  add_index "pages", ["comic_id"], name: "index_pages_on_comic_id", using: :btree
 
 end
