@@ -16,7 +16,7 @@ class PagesController < ApplicationController
 
     if @page.save
       flash[:notice] = "Page successfully created"
-      redirect_to comic_path(@comic)
+      redirect_to comic_path(@comic.name)
     else
       flash[:alert] = "Warning: Page not created"
       render :new
