@@ -1,10 +1,10 @@
 class ComicsController < ApplicationController
   def index
-    @comics = Comic.includes(:pages).order(created_at: :desc)
+    @comics = Comic.all.order(created_at: :desc)
   end
 
   def show
-    @comic = Comic.includes(:pages).where(name: params[:id]).first
+    @comic = Comic.find(params[:id])
     @pages = @comic.pages.order(number: :asc)
   end
 
@@ -30,6 +30,10 @@ class ComicsController < ApplicationController
 
   def destroy
     # Deletion goes here
+  end
+
+  def to_param
+    "#{name}"
   end
 
   private

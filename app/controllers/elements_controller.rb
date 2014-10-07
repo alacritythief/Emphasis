@@ -1,13 +1,13 @@
 class ElementsController < ApplicationController
   def new
     @element = Element.new
-    @comic = Comic.includes(:pages).where(name: params[:comic_id]).first
-    @page = Page.includes(:elements).where(comic_id: @comic.id, number: params[:page])
+    @comic = Comic.find(params[:comic_id])
+    @page = Page.find(params[:page_id])
   end
 
   def create
     @comic = Comic.find(params[:comic_id])
-    @page = Page.find(params[:page])
+    @page = Page.find(params[:page_id])
     @element = Element.new(element_params)
     @element.page_id = @page.id
 

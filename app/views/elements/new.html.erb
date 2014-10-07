@@ -1,6 +1,6 @@
 <h1>Create an Element</h1>
 
-<%= form_for [@comic, @element] do |f| %>
+<%= form_for [@comic, @page, @element] do |f| %>
 
   <% if @element.errors.any? %>
     <h3><%= pluralize(@element.errors.count, "error") %> prohibited this element from being created:</h3>
@@ -47,4 +47,4 @@
 
 <% end %>
 
-<p><%= link_to "Back to page #{params[:page]}", comic_page_path(@comic.name, params[:page]) %></p>
+<p><%= link_to "Back to page #{@page.number}", comic_page_path(@comic, @page) %></p>
