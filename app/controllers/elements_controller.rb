@@ -1,21 +1,24 @@
 class ElementsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @comic = Comic.find(params[:comic_id])
-    @page = Page.includes(:elements).find(params[:page_id])
+    @page = Page.includes(:user, :elements).find(params[:page_id])
     @elements = @page.elements
   end
 
   def new
     @element = Element.new
-    @comic = Comic.find(params[:comic_id])
-    @page = Page.find(params[:page_id])
+    @comic = Comic.authorized_find(current_user, params[:comic_id])
+    @page = Page.authorized_find(current_user, params[:page_id])
   end
 
   def create
-    @comic = Comic.find(params[:comic_id])
-    @page = Page.find(params[:page_id])
+    @comic = Comic.authorized_find(current_user, params[:comic_id])
+    @page = Page.authorized_find(current_user, params[:page_id])
     @element = Element.new(element_params)
     @element.page_id = @page.id
+    @element.user = current_user
 
     if @element.save
       flash[:notice] = "Element successfully created"
@@ -27,15 +30,15 @@ class ElementsController < ApplicationController
   end
 
   def edit
-    @comic = Comic.find(params[:comic_id])
-    @page = Page.find(params[:page_id])
-    @element = Element.find(params[:id])
+    @comic = Comic.authorized_find(current_user,params[:comic_id])
+    @page = Page.authorized_find(current_user,params[:page_id])
+    @element = Element.authorized_find(current_user,params[:id])
   end
 
   def update
-    @comic = Comic.find(params[:comic_id])
-    @page = Page.find(params[:page_id])
-    @element = Element.find(params[:id])
+    @comic = Comic.authorized_find(current_user, params[:comic_id])
+    @page = Page.authorized_find(current_user, params[:page_id])
+    @element = Element.authorized_find(current_user, params[:id])
 
     if @element.update(element_params)
       flash[:notice] = "Your Element has been updated."
@@ -47,9 +50,9 @@ class ElementsController < ApplicationController
   end
 
   def destroy
-    @comic = Comic.find(params[:comic_id])
-    @page = Page.find(params[:page_id])
-    @element = Element.find(params[:id])
+    @comic = Comic.authorized_find(current_user, params[:comic_id])
+    @page = Page.authorized_find(current_user, params[:page_id])
+    @element = Element.authorized_find(current_user, params[:id])
 
     if @element.destroy
       flash[:notice] = "Element deleted."

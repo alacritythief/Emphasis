@@ -1,4 +1,4 @@
-<h1>(User's) Comics:</h1>
+<h1>All Comics:</h1>
 
 <% if @comics.empty? %>
   <ul>
@@ -11,6 +11,7 @@
         <p><strong><%= link_to comic.name, comic_path(comic) %></strong></p>
         <p><%= comic.description %></p>
         <p>Created by: <%= comic.creators %></p>
+        <p>Posted by: <%= comic.user.username %></p>
       </li>
     </ul>
   <% end %>

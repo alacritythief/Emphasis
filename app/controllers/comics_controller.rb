@@ -1,6 +1,8 @@
 class ComicsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
-    @comics = Comic.all.order(created_at: :desc)
+    @comics = Comic.includes(:user).order(created_at: :desc)
   end
 
   def show
@@ -13,6 +15,7 @@ class ComicsController < ApplicationController
 
   def create
     @comic = Comic.new(comic_params)
+    @comic.user = current_user
 
     if @comic.save
       flash[:notice] = "Comic added successfully."
@@ -24,12 +27,12 @@ class ComicsController < ApplicationController
   end
 
   def edit
-    @comic = Comic.find(params[:id])
+    @comic = Comic.authorized_find(current_user, params[:id])
   end
 
 
   def update
-    @comic = Comic.find(params[:id])
+    @comic = Comic.authorized_find(current_user, params[:id])
 
     if @comic.update(comic_params)
       flash[:notice] = "Your comic has been updated."
@@ -41,7 +44,7 @@ class ComicsController < ApplicationController
   end
 
   def destroy
-    @comic = Comic.find(params[:id])
+    @comic = Comic.authorized_find(current_user, params[:id])
 
     if @comic.destroy
       flash[:notice] = "Comic deleted."
