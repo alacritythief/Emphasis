@@ -47,4 +47,4 @@
 
 <% end %>
 
-<p><%= link_to "Back to page #{@page.number}", comic_page_path(@comic, @page) %></p>
+<p><%= link_to "Back to page #{@page.number}", comic_page_path(@comic.name, @page.number) %></p>
