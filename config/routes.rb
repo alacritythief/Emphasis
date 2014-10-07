@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :comics do
-    resources :pages do
-      resources :elements
-    end
+    resources :pages
+    resources :elements
   end
 
   root "comics#index"

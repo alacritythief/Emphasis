@@ -1,10 +1,10 @@
 class ComicsController < ApplicationController
   def index
-    @comics = Comic.all.order(created_at: :desc)
+    @comics = Comic.includes(:pages).order(created_at: :desc)
   end
 
   def show
-    @comic = Comic.where(name: params[:id]).first
+    @comic = Comic.includes(:pages).where(name: params[:id]).first
     @pages = @comic.pages.order(number: :asc)
   end
 
