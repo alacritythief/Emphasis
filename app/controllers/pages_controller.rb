@@ -16,7 +16,7 @@ class PagesController < ApplicationController
 
     if @page.save
       flash[:notice] = "Page successfully created"
-      redirect_to comic_path(@comic.name)
+      redirect_to comic_path(@comic)
     else
       flash[:alert] = "Warning: Page not created"
       render :new
@@ -24,11 +24,34 @@ class PagesController < ApplicationController
   end
 
   def edit
-    # Edit goes here
+    @comic = Comic.find(params[:comic_id])
+    @page = Page.find(params[:id])
+  end
+
+  def update
+    @comic = Comic.find(params[:comic_id])
+    @page = Page.find(params[:id])
+
+    if @page.update(page_params)
+      flash[:notice] = "Your page has been updated."
+      redirect_to comic_path(@comic)
+    else
+      flash[:alert] = "Warning: Page was not updated!"
+      render :edit
+    end
   end
 
   def destroy
-    # Delete goes here
+    @comic = Comic.find(params[:comic_id])
+    @page = Page.find(params[:id])
+
+    if @page.destroy
+      flash[:notice] = "Page deleted."
+      redirect_to comic_path(@comic)
+    else
+      flash[:alert] = "Warning: Page was not deleted."
+      render :edit
+    end
   end
 
   private

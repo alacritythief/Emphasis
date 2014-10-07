@@ -1,4 +1,4 @@
-<h1>Create a Comic</h1>
+<h1>Edit "<%= @comic.name %>"</h1>
 
 <%= form_for @comic do |f| %>
 
@@ -27,9 +27,11 @@
   </p>
 
   <p>
-    <%= f.submit 'Create Comic' %>
+    <%= f.submit 'Edit Comic' %>
   </p>
 
 <% end %>
 
-<%= link_to 'Back to Comics', comics_path %>
+<p><%= link_to 'Delete this comic', @comic, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
+
+<p><%= link_to "Back to #{@comic.name}", comic_path(@comic) %></p>

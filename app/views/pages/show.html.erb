@@ -5,6 +5,8 @@
   <p><img src="<%= element.image_url %>"></p>
 <% end %>
 
+<p><%= link_to 'Edit this Page', edit_comic_page_path(@comic, @page) %></p>
+<p><%= link_to 'List of Page Elements', comic_page_elements_path(@comic, @page) %></p>
 <p><%= link_to 'Create a Element', new_comic_page_element_path(@comic, @page) %></p>
 
 <p><%= link_to "Back to #{@comic.name}", comic_path(@comic) %></p>

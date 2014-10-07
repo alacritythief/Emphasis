@@ -1,4 +1,4 @@
-<h1>Create a Page/Chapter:</h1>
+<h1>Edit a Page/Chapter</h1>
 
 <%= form_for [@comic, @page] do |f| %>
 
@@ -28,13 +28,15 @@
 
   <p>
     <%= f.label :page_type, 'Type' %><br>
-    <%= f.select :page_type, %w[page chapter] %>
+    <%= f.select :page_type, %w[page chapter], selected: @page.page_type %>
   </p>
 
   <p>
-    <%= f.submit 'Create Page' %>
+    <%= f.submit 'Edit Page' %>
   </p>
 
 <% end %>
 
-<p><%= link_to "Back to #{@comic.name}", comic_path(@comic) %></p>
+<p><%= link_to 'Delete this page', [@comic, @page], class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
+
+<p><%= link_to "Back to \"#{@comic.name}\" comic", comic_path(@comic) %></p>

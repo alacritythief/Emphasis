@@ -1,0 +1,20 @@
+<h1>List of Elements on Page</h1>
+
+<% if @elements.empty? %>
+  <ul>
+    <li>No elements on this page!</li>
+  </ul>
+<% else %>
+  <ul>
+  <% @elements.each do |element| %>
+    <li>
+      <p>Image url: <%= element.image_url %></p>
+      <p>Div id name: <%= element.id_name %></p>
+      <p><%= link_to 'Edit this Element', edit_comic_page_element_path(@comic, @page, element) %></p>
+      <p><%= link_to 'Delete this element', [@comic, @page, element], class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+
+<p><%= link_to "Back to page #{@page.number}", comic_page_path(@comic, @page) %></p>

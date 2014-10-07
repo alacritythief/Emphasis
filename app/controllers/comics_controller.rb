@@ -5,7 +5,6 @@ class ComicsController < ApplicationController
 
   def show
     @comic = Comic.includes(:pages).find(params[:id])
-    @pages = @comic.pages.order(number: :asc)
   end
 
   def new
@@ -17,7 +16,7 @@ class ComicsController < ApplicationController
 
     if @comic.save
       flash[:notice] = "Comic added successfully."
-      redirect_to comics_path
+      redirect_to comic_path(@comic)
     else
       flash[:alert] = "Warning: We couldn't post your comic!"
       render :new
@@ -25,11 +24,32 @@ class ComicsController < ApplicationController
   end
 
   def edit
-    # Edit goes here
+    @comic = Comic.find(params[:id])
+  end
+
+
+  def update
+    @comic = Comic.find(params[:id])
+
+    if @comic.update(comic_params)
+      flash[:notice] = "Your comic has been updated."
+      redirect_to comic_path(@comic)
+    else
+      flash[:alert] = "Warning: Comic was not updated!"
+      render :edit
+    end
   end
 
   def destroy
-    # Deletion goes here
+    @comic = Comic.find(params[:id])
+
+    if @comic.destroy
+      flash[:notice] = "Comic deleted."
+      redirect_to comics_path
+    else
+      flash[:alert] = "Warning: Comic was not deleted."
+      render :edit
+    end
   end
 
   private
