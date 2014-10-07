@@ -13,7 +13,7 @@ class ElementsController < ApplicationController
 
     if @element.save
       flash[:notice] = "Element successfully created"
-      redirect_to comic_page_path(@comic, @page.number)
+      redirect_to comic_page_path(@comic.name, @page.number)
     else
       flash[:alert] = "Warning: Element not created"
       render :new
