@@ -1,6 +1,7 @@
 <h1><%= @comic.name %></h1>
 <p>By <%= @comic.creators %></p>
 <p>Description: <%= @comic.description %></p>
+<p>Posted By: <%= @comic.user.username %></p>
 <%= link_to 'Edit this Comic', edit_comic_path(@comic) %>
 
 <% @comic.chapters.each do |number| %>

@@ -1,18 +1,21 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def show
-    @comic = Comic.includes(:pages).find(params[:comic_id])
+    @comic = Comic.includes(:user, :pages).find(params[:comic_id])
     @page = @comic.pages.find(params[:id])
   end
 
   def new
-    @comic = Comic.find(params[:comic_id])
+    @comic = Comic.authorized_find(current_user, params[:comic_id])
     @page = Page.new
   end
 
   def create
-    @comic = Comic.find(params[:comic_id])
+    @comic = Comic.authorized_find(current_user, params[:comic_id])
     @page = Page.new(page_params)
     @page.comic_id = @comic.id
+    @page.user = current_user
 
     if @page.save
       flash[:notice] = "Page successfully created"
@@ -24,13 +27,13 @@ class PagesController < ApplicationController
   end
 
   def edit
-    @comic = Comic.find(params[:comic_id])
-    @page = Page.find(params[:id])
+    @comic = Comic.authorized_find(current_user, params[:comic_id])
+    @page = Page.authorized_find(current_user, params[:id])
   end
 
   def update
-    @comic = Comic.find(params[:comic_id])
-    @page = Page.find(params[:id])
+    @comic = Comic.authorized_find(current_user, params[:comic_id])
+    @page = Page.authorized_find(current_user, params[:id])
 
     if @page.update(page_params)
       flash[:notice] = "Your page has been updated."
@@ -42,8 +45,8 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    @comic = Comic.find(params[:comic_id])
-    @page = Page.find(params[:id])
+    @comic = Comic.authorized_find(current_user, params[:comic_id])
+    @page = Page.authorized_find(current_user, params[:id])
 
     if @page.destroy
       flash[:notice] = "Page deleted."
