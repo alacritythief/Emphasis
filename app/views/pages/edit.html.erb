@@ -28,7 +28,7 @@
 
   <p>
     <%= f.label :page_type %>
-    <%= f.select :page_type, options_for_select(%w[page chapter]) %>
+    <%= f.select :page_type, %w[page chapter], selected: @page.page_type %>
   </p>
 
   <p>

@@ -1,4 +1,4 @@
-<h1>Create a Page</h1>
+<h1>Create a Page/Chapter:</h1>
 
 <%= form_for [@comic, @page] do |f| %>
 
@@ -28,7 +28,7 @@
 
   <p>
     <%= f.label :page_type %>
-    <%= f.select :page_type, options_for_select(%w[page chapter]) %>
+    <%= f.select :page_type, %w[page chapter] %>
   </p>
 
   <p>

@@ -6,13 +6,12 @@
   <% @comic.chapter_pages(number).each do |page| %>
 
     <% if page.page_type == "chapter" %>
-      <p><strong>Chapter <%= page.chapter %>: <%= page.name %></strong> | <%= link_to 'Edit', edit_comic_page_path(@comic, page) %></p>
+      <p><strong>Chapter <%= page.chapter %>: <%= page.name %></strong> | <%= link_to 'edit', edit_comic_page_path(@comic, page) %></p>
     <% else %>
 
     <ul>
       <li>
-      <p><%= link_to "Page #{page.number}", comic_page_path(@comic, page) %> | <%= link_to 'Edit', edit_comic_page_path(@comic, page) %></p>
-        <p><%= page.name %></p>
+      <p><%= link_to "Page #{page.number}", comic_page_path(@comic, page) %> | <%= page.name %> <%= link_to 'edit', edit_comic_page_path(@comic, page) %></p>
       </li>
     </ul>
 
@@ -21,6 +20,6 @@
 <% end %>
 
 
-<p><%= link_to 'Create a Page', new_comic_page_path(@comic) %></p>
+<p><%= link_to 'Create a Page/Chapter', new_comic_page_path(@comic) %></p>
 
 <p><%= link_to 'Back to Comics', comics_path %></p>
