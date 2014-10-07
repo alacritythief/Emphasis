@@ -12,17 +12,17 @@
   <% end %>
 
   <p>
-    <%= f.label :name %>
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= f.label :description %>
+    <%= f.label :description %><br>
     <%= f.text_area :description %>
   </p>
 
   <p>
-    <%= f.label :creators %>
+    <%= f.label :creators %><br>
     <%= f.text_field :creators %>
   </p>
 
@@ -34,4 +34,4 @@
 
 <p><%= link_to 'Delete this comic', @comic, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
 
-<%= link_to 'Back to Comics', comics_path %>
+<p><%= link_to "Back to #{@comic.name}", comic_path(@comic) %></p>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007164148) do
+ActiveRecord::Schema.define(version: 20141007185245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20141007164148) do
   add_index "elements", ["page_id"], name: "index_elements_on_page_id", using: :btree
 
   create_table "pages", force: true do |t|
-    t.integer  "chapter"
+    t.integer  "chapter",                     null: false
     t.string   "name"
     t.integer  "number",                      null: false
     t.string   "page_type",  default: "page", null: false

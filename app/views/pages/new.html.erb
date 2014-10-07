@@ -12,27 +12,27 @@
   <% end %>
 
   <p>
-    <%= f.label :chapter %>
+    <%= f.label :chapter, 'Chapter Number' %><br>
     <%= f.text_field :chapter %>
   </p>
 
   <p>
-    <%= f.label :name %>
+    <%= f.label :name,'Page/Chapter Name' %><br>
     <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= f.label :number %>
+    <%= f.label :number, 'Page Number' %><br>
     <%= f.text_field :number %>
   </p>
 
   <p>
-    <%= f.label :page_type %>
+    <%= f.label :page_type, 'Type' %><br>
     <%= f.select :page_type, %w[page chapter] %>
   </p>
 
   <p>
-    <%= f.submit 'Add Page' %>
+    <%= f.submit 'Create Page' %>
   </p>
 
 <% end %>
