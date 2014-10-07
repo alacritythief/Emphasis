@@ -34,7 +34,7 @@ class PagesController < ApplicationController
 
     if @page.update(page_params)
       flash[:notice] = "Your page has been updated."
-      redirect_to comic_page_path(@comic, @page)
+      redirect_to comic_path(@comic)
     else
       flash[:alert] = "Warning: Page was not updated!"
       render :edit

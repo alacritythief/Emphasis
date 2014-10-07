@@ -2,14 +2,24 @@
 <p>By <%= @comic.creators %></p>
 <p>Description: <%= @comic.description %></p>
 
-<ul>
-  <% @pages.each do |page| %>
-    <li>
-      <p><%= link_to "Page #{page.number}", comic_page_path(@comic, page) %></p>
-      <p><%= page.name %></p>
-    </li>
+<% @comic.chapters.each do |number| %>
+  <% @comic.chapter_pages(number).each do |page| %>
+
+    <% if page.page_type == "chapter" %>
+      <p><strong>Chapter <%= page.chapter %>: <%= page.name %></strong> | <%= link_to 'Edit', edit_comic_page_path(@comic, page) %></p>
+    <% else %>
+
+    <ul>
+      <li>
+      <p><%= link_to "Page #{page.number}", comic_page_path(@comic, page) %> | <%= link_to 'Edit', edit_comic_page_path(@comic, page) %></p>
+        <p><%= page.name %></p>
+      </li>
+    </ul>
+
+    <% end %>
   <% end %>
-</ul>
+<% end %>
+
 
 <p><%= link_to 'Create a Page', new_comic_page_path(@comic) %></p>
 
