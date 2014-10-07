@@ -11,6 +11,7 @@
         <p><strong><%= link_to comic.name, comic_path(comic) %></strong></p>
         <p><%= comic.description %></p>
         <p>Created by: <%= comic.creators %></p>
+        <p><%= link_to 'Edit Comic', edit_comic_path(comic) %></p>
       </li>
     </ul>
   <% end %>
