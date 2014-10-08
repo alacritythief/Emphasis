@@ -1,14 +1,59 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #f0f0f0;
+}
+
+body p {
+}
+
+h1, h2, h3 {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar {
+  background: #fff;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  padding: 0 10px;
+  width: 150px;
+  border-right: 1px solid #ccc;
+}
+
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
+  margin-left: 160px;
+}
+
+.container img {
+  width: 70%;
+}
+
+.alert-box.success, .alert-box.warning {
+  margin-top: 10px;
+  padding: 0.2em 0.7em;
+  font-size: 1em;
+}
+
+.alert-box.success {
+  background-color: #03c383;
+  border-color: #03c383;
+
+}
+
+.alert-box.warning {
+  background-color: #ed0345;
+  border-color: #ed0345;
 }
 
 .form-inputs {
-  max-width: 80%;
 }
 
 input[type="text"], input[type="email"], input[type="password"], textarea {
-  width: 100%;
+  max-width: 100%;
   border-radius: 4px;
   border-color: #ccc;
   border: 1px solid;
@@ -20,3 +65,4 @@ textarea {
   height: 10em;
   border-radius: 4px;
 }
+
