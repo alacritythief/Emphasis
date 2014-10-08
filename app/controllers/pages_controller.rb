@@ -1,9 +1,15 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
+  def index
+    @comic = Comic.includes(:user, :pages).find(params[:comic_id])
+    @pagination = @comic.chapter_pages.page(params[:page]).per(1)
+  end
+
   def show
     @comic = Comic.includes(:user, :pages).find(params[:comic_id])
     @page = @comic.pages.find(params[:id])
+    @pages = @comic.chapter_pages.page(params[:page]).per(1)
   end
 
   def new

@@ -1,0 +1,40 @@
+<% @pagination.each do |page| %>
+
+<h1>
+  <% if page.number == 0 %>
+    Chapter <%= page.chapter %>: <%= page.name %>
+  <% else %>
+    Page <%= page.number %>
+  <% end %>
+</h1>
+
+<span class="tr-buttons">
+<% if @comic.user == current_user %>
+  <%= link_to 'Create Element', new_comic_page_element_path(@comic, page), class: "button radius" %>
+  <%= link_to 'List of Page Elements', comic_page_elements_path(@comic, page), class: "button radius" %>
+  <%= link_to 'Edit this Page', edit_comic_page_path(@comic, page), class: "button radius" %>
+<% end %>
+</span>
+
+<hr>
+
+<div class="text-center">
+  <% page.elements.each do |element| %>
+    <p><img src="<%= element.image_url %>"></p>
+  <% end %>
+
+  <p><strong><%= page.name %></strong></p>
+  <p><strong>p. <%= page.number %></strong></p>
+
+</div>
+
+<div class="text-center"><%= paginate @pagination %></div>
+
+<p class="text-center">
+  <%= link_to "Back to \"#{@comic.name}\"", comic_path(@comic) %>
+</p>
+
+
+
+<% end %>
+

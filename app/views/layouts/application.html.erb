@@ -17,7 +17,15 @@
       <li>
         <p><% if user_signed_in? %><%= current_user.username %><% end %></p>
       </li>
-      <li class="divider"></li>
+    <% if !@pagination.nil? %>
+      <li>
+        <%= link_to_next_page @pagination, 'Next Page >' %>
+      </li>
+      <li>
+        <%= link_to_previous_page @pagination, '< Prev Page' %>
+      </li>
+    <% end %>
+    <li class="divider"></li>
       <li>
         <%= link_to 'Latest Comics', comics_path %>
       </li>
