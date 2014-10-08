@@ -1,15 +1,15 @@
-<h1>Latest Updated Comics:</h1>
-<span class="tr-button"><%= link_to 'Add Your Comic', new_comic_path, class: "button radius" %></span>
+<h1>Latest Updated Comics</h1>
+<span class="tr-buttons">
+  <%= link_to 'Add Comic', new_comic_path, class: "button radius" %>
+</span>
+
 <hr>
 
-<div class="comic-index text-center">
-<% if @comics.empty? %>
-  <ul>
+<ul class="text-center comic-index small-block-grid-1 medium-block-grid-4 large-block-grid-6">
+  <% if @comics.empty? %>
     <li>No comics yet! Make one!</li>
-  </ul>
-<% else %>
-  <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-6">
-  <% @comics.each do |comic| %>
+  <% else %>
+    <% @comics.each do |comic| %>
       <li>
         <div class="index-img"><%= link_to image_tag(comic.cover_img_url), comic_path(comic) %></div>
         <strong><%= link_to "\"#{comic.name}\"", comic_path(comic) %></strong><br>
@@ -18,10 +18,9 @@
         posted by<br>
         <strong><%= comic.user.username %></strong></small>
       </li>
-  <% end %>
-  </ul>
-<%end%>
-</div>
+    <% end %>
+  <%end%>
+</ul>
 
 
 

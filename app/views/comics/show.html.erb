@@ -1,26 +1,53 @@
 <h1><%= @comic.name %></h1>
-
-<p><%= image_tag @comic.cover_img_url %></p>
-
-<p>By <%= @comic.creators %><br>
-Description: <%= @comic.description %><% if @comic.description.empty? %>(none)<% end %><br>
-Posted By: <%= @comic.user.username %><br>
-<%= link_to 'Edit this Comic', edit_comic_path(@comic) %></p>
-
-<% @comic.chapters.each do |number| %>
-  <% @comic.chapter_pages(number).each do |page| %>
-    <% if page.page_type == "chapter" %>
-      <p><strong>Chapter <%= page.chapter %>: <%= page.name %></strong> | <%= link_to 'edit', edit_comic_page_path(@comic, page) %> | <%= link_to 'delete', [@comic, page], method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
-    <% else %>
-      <ul>
-        <li>
-        <p><%= link_to "Page #{page.number}", comic_page_path(@comic, page) %> | <%= page.name %> <%= link_to 'edit', edit_comic_page_path(@comic, page) %> | <%= link_to 'delete', [@comic, page], method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
-        </li>
-      </ul>
-    <% end %>
-  <% end %>
+<span class="tr-buttons">
+<% if @comic.user == current_user %>
+  <%= link_to 'Edit this Comic', edit_comic_path(@comic), class: "button radius" %>
+  <%= link_to 'Create Page/Chapter', new_comic_page_path(@comic), class: "button radius" %>
 <% end %>
+</span>
 
-<p><%= link_to 'Create a Page/Chapter', new_comic_page_path(@comic) %></p>
+<hr>
 
-<p><%= link_to 'Back to Comics', comics_path %></p>
+<div class="row">
+
+  <div class="cover">
+    <%= image_tag @comic.cover_img_url %>
+  </div>
+
+  <div class="chapters">
+    <p>
+      By <%= @comic.creators %><br>
+      <em><%= @comic.description %><% if @comic.description.empty? %>(none)<% end %></em><br>
+      Posted By: <%= @comic.user.username %><br>
+    </p>
+
+    <h4>Contents:</h4>
+    <ul>
+      <% @comic.chapters.each do |number| %>
+        <% @comic.chapter_pages(number).each do |page| %>
+          <% if page.page_type == "chapter" %>
+            <li>
+              <strong>Chapter <%= page.chapter %>: <%= page.name %></strong>
+              <% if @comic.user == current_user %> |
+                <%= link_to 'edit', edit_comic_page_path(@comic, page) %> |
+                <%= link_to 'delete', [@comic, page], method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %>
+              <% end %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Page #{page.number}", comic_page_path(@comic, page) %>
+              <% if @comic.user == current_user %> |
+                <%= page.name %> <%= link_to 'edit', edit_comic_page_path(@comic, page) %> |
+                <%= link_to 'delete', [@comic, page], method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <p><% if @comic.user == current_user %><%= link_to 'Add Page', new_comic_page_path(@comic), class: "button radius" %><% end %></p>
+    <p><%= link_to 'Back to Comics', comics_path %></p>
+  </div>
+
+</div>

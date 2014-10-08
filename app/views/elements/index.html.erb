@@ -1,5 +1,7 @@
 <h1>List of Elements on Page</h1>
 
+<hr>
+
 <% if @elements.empty? %>
   <ul>
     <li>No elements on this page!</li>
@@ -17,4 +19,4 @@
   </ul>
 <% end %>
 
-<p><%= link_to "Back to page #{@page.number}", comic_page_path(@comic, @page) %></p>
+<p class="text-center"><%= link_to "Back to page #{@page.number}", comic_page_path(@comic, @page) %></p>

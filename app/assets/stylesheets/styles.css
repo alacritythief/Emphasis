@@ -3,7 +3,7 @@ body {
   background-color: #f0f0f0;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: 700;
   padding: 0;
@@ -31,25 +31,29 @@ hr {
   border-right: 1px solid #ccc;
 }
 
+.row {
+  max-width: 100%;
+}
+
 .container {
   margin-left: 160px;
   margin-right: 10px;
   margin-top: 15px;
 }
 
-.tr-button {
+.tr-buttons {
   padding-top: 5px;
   float: right;
 }
 
 a {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
-  color: #ff1493;
+  color: #f12f37;
   text-decoration: none;
 }
 
 a:hover, a:focus {
-  color: #ff1493;
+  color: #f12f37;
   text-decoration: underline;
 }
 
@@ -72,13 +76,13 @@ a:hover, a:focus {
 
 button, .button {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
-  background-color: #03c383;
+  background-color: #000;
   padding: 8px 12px;
   font-size: 0.8em;
 }
 
 button:hover, .button:hover, button:active, .button:hover {
-  background-color: #ff1493;
+  background-color: #f12f37;
   text-decoration: none;
 }
 
@@ -94,8 +98,8 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .alert-box.warning {
-  background-color: #ed0345;
-  border-color: #ed0345;
+  background-color: #f12f37;
+  border-color: #d31b36;
 }
 
 .form-inputs {
@@ -105,6 +109,21 @@ button:hover, .button:hover, button:active, .button:hover {
 .comic-index ul, li {
   list-style: none;
   line-height: 110%;
+}
+
+.chapters, .chapters ul, .chapters li {
+  line-height: 150%;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.cover {
+  float:right;
+}
+
+.cover img {
+  max-width: 700px;
+  width: 100%;
 }
 
 .index-img {
