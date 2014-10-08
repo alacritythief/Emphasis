@@ -8,34 +8,32 @@
 </head>
 <body>
 
-  <p><strong><%= notice %></strong></p>
-  <p><strong><%= alert %></strong></p>
-
-  <% if user_signed_in? %>
-    <p>You are logged in as: <%= current_user.username %></p>
-  <% else %>
-    <p>You are not logged in.</p>
-  <% end %>
-
-  <ul>
-    <li>
-      <%= link_to 'All Comics', comics_path %>
-    </li>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to('Logout', destroy_user_session_path, class: 'button radius', :method => :delete) %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Login', new_user_session_path, class: 'button radius') %>
-    </li>
-  <% end %>
-  </ul>
-
-
-
+  <div class="sidebar">
+    <ul class="side-nav text-center">
+      <li>
+        <%= image_tag("em_logo.png") %>
+      </li>
+      <li>
+        <p><% if user_signed_in? %><%= current_user.username %><% end %></p>
+      </li>
+      <li>
+        <%= link_to 'All Comics', comics_path %>
+      </li>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to('Login', new_user_session_path) %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
 
   <div class="container">
+    <% if !notice.nil? %><p class="alert-box radius success"><%= notice %></p><% end %>
+    <% if !alert.nil? %><p class="alert-box radius warning"><%= alert %></p><% end %>
     <%= yield %>
   </div>
 
