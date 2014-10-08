@@ -10,7 +10,7 @@
   <% @comics.each do |comic| %>
       <li>
         <strong><%= link_to "\"#{comic.name}\"", comic_path(comic) %></strong><br>
-        <%= comic.description %><br>
+        <em><%= comic.description %></em><br>
         created by <%= comic.creators %><br>
         posted by <%= comic.user.username %>
       </li>
