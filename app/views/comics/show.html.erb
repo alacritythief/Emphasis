@@ -1,4 +1,7 @@
 <h1><%= @comic.name %></h1>
+
+<p><%= image_tag @comic.cover_img_url %></p>
+
 <p>By <%= @comic.creators %><br>
 Description: <%= @comic.description %><% if @comic.description.empty? %>(none)<% end %><br>
 Posted By: <%= @comic.user.username %><br>

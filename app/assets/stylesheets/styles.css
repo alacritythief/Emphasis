@@ -1,16 +1,23 @@
 body {
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
   background-color: #f0f0f0;
 }
 
-body p {
-}
-
 h1, h2, h3 {
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: 700;
   padding: 0;
   margin: 0;
+  display: inline-block;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .sidebar {
@@ -30,8 +37,49 @@ h1, h2, h3 {
   margin-top: 15px;
 }
 
-.container img {
-  width: 90%;
+.tr-button {
+  padding-top: 5px;
+  float: right;
+}
+
+a {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+  color: #ff1493;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #ff1493;
+  text-decoration: underline;
+}
+
+.side-nav li {
+  padding: 0;
+  margin: 0;
+}
+
+.side-nav li a:not(.button) {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+  color: #000;
+  font-weight: bold;
+}
+
+.side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+}
+
+button, .button {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #03c383;
+  padding: 8px 12px;
+  font-size: 0.8em;
+}
+
+button:hover, .button:hover, button:active, .button:hover {
+  background-color: #ff1493;
+  text-decoration: none;
 }
 
 .alert-box.success, .alert-box.warning {
@@ -56,6 +104,15 @@ h1, h2, h3 {
 
 .comic-index ul, li {
   list-style: none;
+  line-height: 110%;
+}
+
+.index-img {
+  height: 210px;
+}
+
+.index-img img {
+  max-height: 200px;
 }
 
 input[type="text"], input[type="email"], input[type="password"], textarea {

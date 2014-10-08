@@ -1,6 +1,8 @@
-<h1>All Comics:</h1>
+<h1>Latest Updated Comics:</h1>
+<span class="tr-button"><%= link_to 'Add Your Comic', new_comic_path, class: "button radius" %></span>
+<hr>
 
-<div class="comic-index">
+<div class="comic-index text-center">
 <% if @comics.empty? %>
   <ul>
     <li>No comics yet! Make one!</li>
@@ -9,15 +11,18 @@
   <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-6">
   <% @comics.each do |comic| %>
       <li>
+        <div class="index-img"><%= link_to image_tag(comic.cover_img_url), comic_path(comic) %></div>
         <strong><%= link_to "\"#{comic.name}\"", comic_path(comic) %></strong><br>
-        <em><%= comic.description %></em><br>
-        created by <%= comic.creators %><br>
-        posted by <%= comic.user.username %>
+        <small>created by<br>
+        <strong><%= comic.creators %></strong><br>
+        posted by<br>
+        <strong><%= comic.user.username %></strong></small>
       </li>
   <% end %>
   </ul>
 <%end%>
-
-<p><%= link_to 'Add a Comic', new_comic_path %></p>
-
 </div>
+
+
+
+

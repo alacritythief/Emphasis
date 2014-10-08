@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Emphasis</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -16,10 +17,14 @@
       <li>
         <p><% if user_signed_in? %><%= current_user.username %><% end %></p>
       </li>
+      <li class="divider"></li>
       <li>
-        <%= link_to 'All Comics', comics_path %>
+        <%= link_to 'Latest Comics', comics_path %>
       </li>
     <% if user_signed_in? %>
+      <li>
+      <%= link_to 'Create Comic', new_comic_path %>
+      </li>
       <li>
         <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
       </li>
