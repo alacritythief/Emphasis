@@ -1,9 +1,8 @@
 EMPHASIS TODO list
 ==================
 
-* Basic views, forms
-* Allow the upload of elements
-
+* Allow the upload of elements via Carrierwave/S3
+* Javascript animation system
 
 COMPLETED
 =========
@@ -11,3 +10,5 @@ COMPLETED
 * ER Diagram
 * Create basic models: Comics, Pages, Elements
 * Create basic schema with migrations
+* Basic UI, views, forms, styling
+* User model, roles
