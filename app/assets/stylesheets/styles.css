@@ -1,16 +1,23 @@
 body {
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
   background-color: #f0f0f0;
 }
 
-body p {
-}
-
-h1, h2, h3 {
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+h1, h2, h3, h4 {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: 700;
   padding: 0;
   margin: 0;
+  display: inline-block;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .sidebar {
@@ -19,9 +26,13 @@ h1, h2, h3 {
   top: 0;
   bottom: 0;
   position: fixed;
-  padding: 0 10px;
+  padding: 10px;
   width: 150px;
   border-right: 1px solid #ccc;
+}
+
+.row {
+  max-width: 100%;
 }
 
 .container {
@@ -30,8 +41,49 @@ h1, h2, h3 {
   margin-top: 15px;
 }
 
-.container img {
-  width: 90%;
+.tr-buttons {
+  padding-top: 5px;
+  float: right;
+}
+
+a {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+  color: #f12f37;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #f12f37;
+  text-decoration: underline;
+}
+
+.side-nav li {
+  padding: 0;
+  margin: 0;
+}
+
+.side-nav li a:not(.button) {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+  color: #000;
+  font-weight: bold;
+}
+
+.side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+}
+
+button, .button {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #000;
+  padding: 8px 12px;
+  font-size: 0.8em;
+}
+
+button:hover, .button:hover, button:active, .button:hover {
+  background-color: #f12f37;
+  text-decoration: none;
 }
 
 .alert-box.success, .alert-box.warning {
@@ -46,8 +98,8 @@ h1, h2, h3 {
 }
 
 .alert-box.warning {
-  background-color: #ed0345;
-  border-color: #ed0345;
+  background-color: #f12f37;
+  border-color: #d31b36;
 }
 
 .form-inputs {
@@ -56,6 +108,29 @@ h1, h2, h3 {
 
 .comic-index ul, li {
   list-style: none;
+  line-height: 110%;
+}
+
+.chapters, .chapters ul, .chapters li {
+  margin: 0;
+  padding: 8px 0;
+}
+
+.cover {
+  float:right;
+}
+
+.cover img {
+  max-width: 700px;
+  width: 100%;
+}
+
+.index-img {
+  height: 210px;
+}
+
+.index-img img {
+  max-height: 200px;
 }
 
 input[type="text"], input[type="email"], input[type="password"], textarea {

@@ -2,7 +2,7 @@ class ComicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @comics = Comic.includes(:user).order(created_at: :desc)
+    @comics = Comic.includes(:user).order(updated_at: :desc)
   end
 
   def show
@@ -58,6 +58,6 @@ class ComicsController < ApplicationController
   private
 
   def comic_params
-    params.require(:comic).permit(:name, :description, :creators)
+    params.require(:comic).permit(:cover_img_url, :name, :description, :creators)
   end
 end
