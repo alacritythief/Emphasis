@@ -26,7 +26,7 @@ hr {
   top: 0;
   bottom: 0;
   position: fixed;
-  padding: 0 10px;
+  padding: 10px;
   width: 150px;
   border-right: 1px solid #ccc;
 }
@@ -112,9 +112,8 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .chapters, .chapters ul, .chapters li {
-  line-height: 150%;
-  padding: 0;
-  margin-left: 10px;
+  margin: 0;
+  padding: 8px 0;
 }
 
 .cover {

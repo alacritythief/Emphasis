@@ -10,10 +10,10 @@
 <body>
 
   <div class="sidebar">
+
+    <%= link_to image_tag("em_logo.png"), root_path %>
+
     <ul class="side-nav text-center">
-      <li>
-        <%= image_tag("em_logo.png") %>
-      </li>
       <li>
         <p><% if user_signed_in? %><%= current_user.username %><% end %></p>
       </li>
