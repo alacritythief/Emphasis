@@ -32,6 +32,6 @@
 
 <% end %>
 
-<p><%= link_to 'Delete this comic', @comic, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
+<p><%= link_to 'Delete this comic', @comic, method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
 
 <p><%= link_to "Back to #{@comic.name}", comic_path(@comic) %></p>

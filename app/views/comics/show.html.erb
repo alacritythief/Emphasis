@@ -1,17 +1,17 @@
 <h1><%= @comic.name %></h1>
-<p>By <%= @comic.creators %></p>
-<p>Description: <%= @comic.description %></p>
-<p>Posted By: <%= @comic.user.username %></p>
-<%= link_to 'Edit this Comic', edit_comic_path(@comic) %>
+<p>By <%= @comic.creators %><br>
+Description: <%= @comic.description %><% if @comic.description.empty? %>(none)<% end %><br>
+Posted By: <%= @comic.user.username %><br>
+<%= link_to 'Edit this Comic', edit_comic_path(@comic) %></p>
 
 <% @comic.chapters.each do |number| %>
   <% @comic.chapter_pages(number).each do |page| %>
     <% if page.page_type == "chapter" %>
-      <p><strong>Chapter <%= page.chapter %>: <%= page.name %></strong> | <%= link_to 'edit', edit_comic_page_path(@comic, page) %></p>
+      <p><strong>Chapter <%= page.chapter %>: <%= page.name %></strong> | <%= link_to 'edit', edit_comic_page_path(@comic, page) %> | <%= link_to 'delete', [@comic, page], method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
     <% else %>
       <ul>
         <li>
-        <p><%= link_to "Page #{page.number}", comic_page_path(@comic, page) %> | <%= page.name %> <%= link_to 'edit', edit_comic_page_path(@comic, page) %></p>
+        <p><%= link_to "Page #{page.number}", comic_page_path(@comic, page) %> | <%= page.name %> <%= link_to 'edit', edit_comic_page_path(@comic, page) %> | <%= link_to 'delete', [@comic, page], method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
         </li>
       </ul>
     <% end %>

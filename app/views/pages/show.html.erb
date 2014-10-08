@@ -1,14 +1,15 @@
-<div class="text-center"
-  <h1><%= @page.name %></h1>
-  <h3>Page <%= @page.number %></h3>
+<div class="text-center">
 
   <% @page.elements.each do |element| %>
     <p><img src="<%= element.image_url %>"></p>
   <% end %>
 
-  <p><%= link_to 'Edit this Page', edit_comic_page_path(@comic, @page) %></p>
-  <p><%= link_to 'List of Page Elements', comic_page_elements_path(@comic, @page) %></p>
-  <p><%= link_to 'Create a Element', new_comic_page_element_path(@comic, @page) %></p>
-
-  <p><%= link_to "Back to #{@comic.name}", comic_path(@comic) %></p>
+  <p><strong><%= @page.name %></strong></p>
+  <p><strong>p. <%= @page.number %></strong></p>
+  <p>
+    <%= link_to 'Edit this Page', edit_comic_page_path(@comic, @page) %> |
+    <%= link_to 'List of Page Elements', comic_page_elements_path(@comic, @page) %> |
+    <%= link_to 'Create a Element', new_comic_page_element_path(@comic, @page) %> |
+    <%= link_to "Back to \"#{@comic.name}\"", comic_path(@comic) %>
+  </p>
 </div>
