@@ -1,20 +1,23 @@
 <h1>All Comics:</h1>
 
+<div class="comic-index">
 <% if @comics.empty? %>
   <ul>
     <li>No comics yet! Make one!</li>
   </ul>
 <% else %>
+  <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-6">
   <% @comics.each do |comic| %>
-    <ul>
       <li>
-        <p><strong><%= link_to comic.name, comic_path(comic) %></strong></p>
-        <p><%= comic.description %></p>
-        <p>Created by: <%= comic.creators %></p>
-        <p>Posted by: <%= comic.user.username %></p>
+        <strong><%= link_to "\"#{comic.name}\"", comic_path(comic) %></strong><br>
+        <%= comic.description %><br>
+        created by <%= comic.creators %><br>
+        posted by <%= comic.user.username %>
       </li>
-    </ul>
   <% end %>
+  </ul>
 <%end%>
 
 <p><%= link_to 'Add a Comic', new_comic_path %></p>
+
+</div>
