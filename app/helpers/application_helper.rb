@@ -8,4 +8,12 @@ module ApplicationHelper
     end
   end
 
+  def element_image(element)
+    if element.image_url.present?
+      image_tag(element.image_url)
+    else
+      image_tag(element.image_file)
+    end
+  end
+
 end
