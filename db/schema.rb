@@ -11,19 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008181411) do
+ActiveRecord::Schema.define(version: 20141009145648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comics", force: true do |t|
-    t.string   "name",                                                                               null: false
-    t.string   "creators",                                                                           null: false
+    t.string   "name",          null: false
+    t.string   "creators",      null: false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",                                                                            null: false
-    t.string   "cover_img_url", default: "http://placehold.it/200x250/b0b0b0/ffffff/&text=emphasis"
+    t.integer  "user_id",       null: false
+    t.string   "cover_img_url"
+    t.string   "cover_image"
   end
 
   create_table "elements", force: true do |t|

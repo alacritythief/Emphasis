@@ -5,6 +5,9 @@ class Comic < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 255 }
   validates :creators, presence: true, length: { maximum: 255 }
 
+  mount_uploader :cover_image, CoverImageUploader
+  validate :url_or_upload
+
   def chapter_pages
     self.pages.order(chapter: :asc, number: :asc)
   end
@@ -18,6 +21,16 @@ class Comic < ActiveRecord::Base
       find(id)
     else
       where(user: user).find(id)
+    end
+  end
+
+  def url_or_upload
+    if cover_img_url.blank? && cover_image.blank?
+      errors[:base] << "Please enter either a url or upload a file."
+    end
+
+    if cover_img_url.present? && cover_image.present?
+      errors[:base] << "Choose either a url or file for your cover image."
     end
   end
 end
