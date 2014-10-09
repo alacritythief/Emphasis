@@ -12,22 +12,27 @@
   <% end %>
 
   <p>
-    <%= f.label :cover_img_url %><br>
+    <%= f.label :cover_img_url, "Cover Image URL" %>
     <%= f.text_field :cover_img_url %>
   </p>
 
   <p>
-    <%= f.label :name %><br>
+    <%= f.label :cover_image, "or Cover Image File" %>
+    <%= f.file_field :cover_image %>
+  </p>
+
+  <p>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </p>
 
   <p>
-    <%= f.label :creators %><br>
+    <%= f.label :creators %>
     <%= f.text_field :creators %>
   </p>
 

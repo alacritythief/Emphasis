@@ -14,8 +14,13 @@
   <% end %>
 
   <p>
-    <%= f.label :image_url %>
+    <%= f.label :image_url, "Element Image URL" %>
     <%= f.text_field :image_url %>
+  </p>
+
+  <p>
+    <%= f.label :image_file, "or Element Image File" %>
+    <%= f.file_field :image_file %>
   </p>
 
   <p>

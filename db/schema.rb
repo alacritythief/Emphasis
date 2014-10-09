@@ -11,34 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008181411) do
+ActiveRecord::Schema.define(version: 20141009151929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comics", force: true do |t|
-    t.string   "name",                                                                               null: false
-    t.string   "creators",                                                                           null: false
+    t.string   "name",          null: false
+    t.string   "creators",      null: false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",                                                                            null: false
-    t.string   "cover_img_url", default: "http://placehold.it/200x250/b0b0b0/ffffff/&text=emphasis"
+    t.integer  "user_id",       null: false
+    t.string   "cover_img_url"
+    t.string   "cover_image"
   end
 
   create_table "elements", force: true do |t|
-    t.string   "image_url",      default: "http://placehold.it/700x950/b0b0b0/ffffff/&text=emphasis", null: false
+    t.string   "image_url"
     t.string   "alt_text"
     t.text     "notes"
     t.integer  "x"
     t.integer  "y"
     t.integer  "z"
-    t.string   "animation_type", default: "none",                                                     null: false
+    t.string   "animation_type", default: "none", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "id_name"
-    t.integer  "page_id",                                                                             null: false
-    t.integer  "user_id",                                                                             null: false
+    t.integer  "page_id",                         null: false
+    t.integer  "user_id",                         null: false
+    t.string   "image_file"
   end
 
   add_index "elements", ["page_id"], name: "index_elements_on_page_id", using: :btree

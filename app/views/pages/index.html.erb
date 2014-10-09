@@ -21,7 +21,7 @@
 
 <div class="text-center">
   <% page.elements.each do |element| %>
-    <p><img src="<%= element.image_url %>"></p>
+    <p><%= element_image(element) %></p>
   <% end %>
 
   <p><strong>
