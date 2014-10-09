@@ -33,9 +33,7 @@
     <%= f.select :page_type, %w[page chapter], selected: @page.page_type %>
   </p>
 
-  <p>
-    <%= f.submit 'Edit Page' %>
-  </p>
+  <%= f.submit 'Edit Page', class: "button radius" %>
 
 <% end %>
 
