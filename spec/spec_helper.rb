@@ -38,6 +38,13 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  def sign_in_as(user)
+    visit new_user_session_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Log in"
+  end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
