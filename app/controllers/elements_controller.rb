@@ -22,7 +22,7 @@ class ElementsController < ApplicationController
 
     if @element.save
       flash[:notice] = "Element successfully created"
-      redirect_to comic_page_path(@comic, @page)
+      redirect_to comic_pages_path(@comic, page: @page.number)
     else
       flash[:alert] = "Warning: Element not created"
       render :new
@@ -42,7 +42,7 @@ class ElementsController < ApplicationController
 
     if @element.update(element_params)
       flash[:notice] = "Your Element has been updated."
-      redirect_to comic_page_path(@comic, @page)
+      redirect_to comic_pages_path(@comic, page: @page.number)
     else
       flash[:alert] = "Warning: Element was not updated!"
       render :edit
@@ -56,7 +56,7 @@ class ElementsController < ApplicationController
 
     if @element.destroy
       flash[:notice] = "Element deleted."
-      redirect_to comic_page_path(@comic, @page)
+      redirect_to comic_pages_path(@comic, page: @page.number)
     else
       flash[:alert] = "Warning: Element was not deleted."
       render :edit

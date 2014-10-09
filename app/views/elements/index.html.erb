@@ -19,4 +19,4 @@
   </ul>
 <% end %>
 
-<p class="text-center"><%= link_to "Back to page #{@page.number}", comic_page_path(@comic, @page) %></p>
+<p class="text-center"><%= link_to "Back to page #{@page.number}", comic_pages_path(@comic, page: @page.number) %></p>

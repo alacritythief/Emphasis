@@ -25,16 +25,15 @@
 
   <p><strong><%= page.name %></strong></p>
   <p><strong>p. <%= page.number %></strong></p>
-
 </div>
 
-<div class="text-center"><%= paginate @pagination %></div>
+<div class="text-center">
+  <%= paginate @pagination %>
+</div>
 
 <p class="text-center">
   <%= link_to "Back to \"#{@comic.name}\"", comic_path(@comic) %>
 </p>
-
-
 
 <% end %>
 
