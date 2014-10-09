@@ -29,6 +29,7 @@ CURRENT ER DIAGRAM
 ------------------
 
 ```
+
                                  EMPHASIS
                                  ========
 
@@ -90,6 +91,5 @@ CURRENT ER DIAGRAM
                   |           Belongs to User           |
                   |                                     |
                   +-------------------------------------+
-
 
 ```
