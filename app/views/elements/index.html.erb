@@ -3,6 +3,7 @@
 <span class="tr-buttons">
 <% if @comic.user == current_user %>
   <%= link_to 'Create Element', new_comic_page_element_path(@comic, @page), class: "button radius" %>
+  <%= link_to "#{@comic.name} Index", comic_path(@comic), class: "button radius" %>
 <% end %>
 </span>
 

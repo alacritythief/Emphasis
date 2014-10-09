@@ -13,6 +13,7 @@
   <%= link_to 'Create Element', new_comic_page_element_path(@comic, page), class: "button radius" %>
   <%= link_to 'List of Page Elements', comic_page_elements_path(@comic, page), class: "button radius" %>
   <%= link_to 'Edit this Page', edit_comic_page_path(@comic, page), class: "button radius" %>
+  <%= link_to "#{@comic.name} Index", comic_path(@comic), class: "button radius" %>
 <% end %>
 </span>
 
