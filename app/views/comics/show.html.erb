@@ -46,7 +46,6 @@
 
     <p><% if @comic.user == current_user %><%= link_to 'Add Page', new_comic_page_path(@comic), class: "button radius" %><% end %></p>
 
-    <p><%= link_to 'Index test', comic_pages_path(@comic, page: 1) %></p>
     <p><%= link_to 'Back to Comics', comics_path %></p>
 
   </div>
