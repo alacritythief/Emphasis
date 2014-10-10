@@ -1,7 +1,7 @@
 Emphasis
 ========
 
-[![Build Status](https://travis-ci.org/alacritythief/Emphasis.svg?branch=master)]
+[![Build Status](https://travis-ci.org/alacritythief/Emphasis.svg?branch=master)](https://travis-ci.org/alacritythief/Emphasis)
 
 [emphasis.herokuapp.com](https://emphasis.herokuapp.com/)
 
