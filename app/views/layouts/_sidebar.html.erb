@@ -2,7 +2,7 @@
   <li>
     <p><% if user_signed_in? %><%= current_user.username %><% end %></p>
   </li>
-<% if !@comic.nil? %>
+<% if !@comic.nil? && !@comic.pages.empty? %>
   <li>
     <%= link_to "Contents", comic_path(@comic) %>
   </li>
