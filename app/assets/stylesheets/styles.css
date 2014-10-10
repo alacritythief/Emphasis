@@ -76,7 +76,7 @@ button, .button {
   font-size: 0.8em;
 }
 
-button:hover, .button:hover, button:active, .button:hover {
+button:hover, .button:hover, button:active, .button:hover, button:focus, .button:focus {
   background-color: #f12f37;
   text-decoration: none;
 }
