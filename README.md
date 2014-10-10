@@ -1,6 +1,8 @@
 Emphasis
 ========
 
+[![Build Status](https://travis-ci.org/alacritythief/Emphasis.svg?branch=master)]
+
 [emphasis.herokuapp.com](https://emphasis.herokuapp.com/)
 
 A "Breakable Toy" project for Launch Academy, Emphasis is an animation framework, as well as a content management system for webcomics built with Ruby on Rails.
