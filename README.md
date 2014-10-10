@@ -13,20 +13,29 @@ This is currently a work-in-progress, so do not expect it to be functioning unti
 EMPHASIS TODO List
 ------------------
 
-* Javascript/Canvas animation system
+* Further Spec/Model Tests
+* Canvas/JS animation system (most important)
+* Collaborators join table
+* E-Mail verification and notification
+* Admin moderation
+* Thumbnail optimization & resizing
+* Last interface improvements
+* Polish and optimization
 
 
 COMPLETED
 ---------
 
 * ER Diagram
-* Create basic models: Comics, Pages, Elements
-* User model, roles
+* Models w/ validations: Comics, Pages, Elements
+* User model w/ roles column
+* Login w/ Devise
 * CRUD features of models
-* Create basic schema with migrations
+* Schema with migrations
 * Basic UI, views, forms, styling
-* Pagination
+* Pagination via Kaminari
 * Allow the upload of images via Carrierwave/S3
+* Allow the deletion of uploaded S3 images
 
 
 CURRENT ER DIAGRAM
@@ -60,7 +69,7 @@ CURRENT ER DIAGRAM
 |         Comics           |                   +--------------------------------+
 +--------------------------+                   |                                |
 |                          |                   |  Page.chapter                  |
-|   Comic.cover_image      |            +------>  Page.name                     |
+|  Comic.cover_image       |            +------>  Page.name                     |
 |  Comic.cover_img_url     |            |      |  Page.number                   |
 |  Comic.name              <------------------->  Page.page_type default:page   |
 |  Comic.description       |            |      |  Page.user_id                  |
