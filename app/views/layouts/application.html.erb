@@ -17,6 +17,11 @@
       <li>
         <p><% if user_signed_in? %><%= current_user.username %><% end %></p>
       </li>
+    <% if !@comic.nil? %>
+      <li>
+        <%= link_to "Contents", comic_path(@comic) %>
+      </li>
+    <% end %>
     <% if !@pagination.nil? %>
       <li>
         <%= link_to_next_page @pagination, 'Next Page >' %>
