@@ -10,43 +10,8 @@
 <body>
 
   <div class="sidebar">
-
     <%= link_to image_tag("em_logo.png"), root_path %>
-
-    <ul class="side-nav text-center">
-      <li>
-        <p><% if user_signed_in? %><%= current_user.username %><% end %></p>
-      </li>
-    <% if !@comic.nil? %>
-      <li>
-        <%= link_to "Contents", comic_path(@comic) %>
-      </li>
-    <% end %>
-    <% if !@pagination.nil? %>
-      <li>
-        <%= link_to_next_page @pagination, 'Next Page >' %>
-      </li>
-      <li>
-        <%= link_to_previous_page @pagination, '< Prev Page' %>
-      </li>
-    <% end %>
-    <li class="divider"></li>
-      <li>
-        <%= link_to 'Latest Comics', comics_path %>
-      </li>
-    <% if user_signed_in? %>
-      <li>
-      <%= link_to 'Create Comic', new_comic_path %>
-      </li>
-      <li>
-        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to('Login', new_user_session_path) %>
-      </li>
-    <% end %>
-    </ul>
+    <%= render partial: 'layouts/sidebar' %>
   </div>
 
   <div class="container">
