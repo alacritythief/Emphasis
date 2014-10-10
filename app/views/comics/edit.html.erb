@@ -21,6 +21,13 @@
     <%= f.file_field :cover_image %>
   </p>
 
+  <% if !@comic.cover_image.file.nil? %>
+  <p>
+    <%= @comic.cover_image %><br>
+    <%= f.check_box :remove_cover_image %><%= f.label :remove_cover_image, "Remove Cover Image"%>
+  </p>
+  <% end %>
+
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>

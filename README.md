@@ -24,7 +24,7 @@ COMPLETED
 * Create basic schema with migrations
 * Basic UI, views, forms, styling
 * Pagination
-* Allow the upload of elements via Carrierwave/S3
+* Allow the upload of images via Carrierwave/S3
 
 
 CURRENT ER DIAGRAM

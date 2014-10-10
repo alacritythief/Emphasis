@@ -14,22 +14,22 @@
   <% end %>
 
   <p>
-    <%= f.label :chapter, 'Chapter Number' %><br>
+    <%= f.label :chapter, 'Chapter Number' %>
     <%= f.text_field :chapter %>
   </p>
 
   <p>
-    <%= f.label :name,'Page/Chapter Name' %><br>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :number, 'Page Number' %><br>
+    <%= f.label :number, 'Page Number' %>
     <%= f.text_field :number %>
   </p>
 
   <p>
-    <%= f.label :page_type, 'Type' %><br>
+    <%= f.label :name,'Page/Chapter Name' %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :page_type, 'Type' %>
     <%= f.select :page_type, %w[page chapter] %>
   </p>
 

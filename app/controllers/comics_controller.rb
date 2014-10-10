@@ -58,6 +58,6 @@ class ComicsController < ApplicationController
   private
 
   def comic_params
-    params.require(:comic).permit(:cover_img_url, :cover_image, :name, :description, :creators)
+    params.require(:comic).permit(:cover_img_url, :cover_image, :remove_cover_image, :name, :description, :creators)
   end
 end
