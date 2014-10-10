@@ -9,19 +9,6 @@
   <% if @comics.empty? %>
     <li>No comics yet! Make one!</li>
   <% else %>
-    <% @comics.each do |comic| %>
-      <li>
-        <div class="index-img"><%= link_to cover_image(comic), comic_path(comic) %></div>
-        <strong><%= link_to "\"#{comic.name}\"", comic_path(comic) %></strong><br>
-        <small>created by<br>
-        <strong><%= comic.creators %></strong><br>
-        posted by<br>
-        <strong><%= comic.user.username %></strong></small>
-      </li>
-    <% end %>
+    <%= render @comics %>
   <%end%>
 </ul>
-
-
-
-
