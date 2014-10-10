@@ -3,3 +3,5 @@ rvm:
   - 2.0.0
 before_script:
   - psql -c 'create database emphasis_test;' -U postgres
+notifications:
+  email: false
