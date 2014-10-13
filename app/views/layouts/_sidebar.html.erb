@@ -1,6 +1,6 @@
 <ul class="side-nav text-center">
   <li>
-    <p><% if user_signed_in? %><%= current_user.username %><% end %></p>
+    <% if user_signed_in? %><%= link_to current_user.username, edit_user_registration_path(current_user) %><% end %>
   </li>
 <% if !@comic.nil? && !@comic.pages.empty? %>
   <li>

@@ -76,11 +76,6 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
   text-decoration: none;
 }
 
-.chapters, .chapters ul, .chapters li {
-  margin: 0;
-  padding: 8px 0;
-}
-
 .comic-index ul, li {
   line-height: 110%;
   list-style: none;
@@ -92,9 +87,8 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
 }
 
 .cover img {
-  width: 100%;
-  max-width: 500px;
-  max-height: 100vh;
+  max-width: 100%;
+  max-height: 90vh;
 }
 
 .container {
@@ -106,6 +100,11 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
 
 .form-inputs {
   width: 100%;
+}
+
+.list ul, .list li {
+  margin: 0;
+  padding: 5px 0;
 }
 
 .row {

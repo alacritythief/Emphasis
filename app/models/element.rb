@@ -15,6 +15,10 @@ class Element < ActiveRecord::Base
     end
   end
 
+  def editable_by?(user)
+    self.user == user || user.admin?
+  end
+
   def url_or_upload
     if image_url.blank? && image_file.blank?
       errors[:base] << "Please enter either a url or upload a file."

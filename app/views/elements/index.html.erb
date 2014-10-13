@@ -10,44 +10,46 @@
 
 <hr>
 
-<% if @elements.empty? %>
-  <ul>
-    <li>No elements on this page!</li>
-  </ul>
-<% else %>
-  <ul>
-  <% @elements.each do |element| %>
-    <li>
-      <p class="index-img">
-        <strong>Image:</strong><br>
-        <%= element_image(element) %>
-      </p>
-      <p>
-        <strong>ID name:</strong><br>
-        <%= element.id_name || "(none)" %>
-      </p>
-      <p>
-        <strong>Animation Type:</strong><br>
-        <%= element.animation_type %>
-      </p>
-      <p>
-        <strong>Creator Notes:</strong><br>
-        <%= element.notes || "(none)" %>
-      </p>
-      <p>
-        <strong>Custom CSS:</strong><br>
-        <%= element.css || "(none)" %>
-      </p>
-      <p>
-        <strong>Custom JS:</strong><br>
-        <%= element.js || "(none)" %>
-      </p>
+<div class="list">
+  <% if @elements.empty? %>
+    <ul>
+      <li>No elements on this page!</li>
+    </ul>
+  <% else %>
+    <ul>
+    <% @elements.each do |element| %>
+      <li>
+        <p class="index-img">
+          <strong>Image:</strong><br>
+          <%= element_image(element) %>
+        </p>
+        <p>
+          <strong>ID name:</strong><br>
+          <%= element.id_name.nil? ? element.id_name : "(none)" %>
+        </p>
+        <p>
+          <strong>Animation Type:</strong><br>
+          <%= element.animation_type %>
+        </p>
+        <p>
+          <strong>Creator Notes:</strong><br>
+          <%= element.notes.nil? ? element.notes : "(none)" %>
+        </p>
+        <p>
+          <strong>Custom CSS:</strong><br>
+          <%= element.css.nil? ? element.css : "(none)" %>
+        </p>
+        <p>
+          <strong>Custom JS:</strong><br>
+          <%= element.js.nil? ? element.js : "(none)" %>
+        </p>
 
-      <p><%= link_to 'Edit this Element', edit_comic_page_element_path(@comic, @page, element) %></p>
-      <%= link_to 'Delete this element', [@comic, @page, element], class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %>
-    </li>
+        <p><%= link_to 'Edit this Element', edit_comic_page_element_path(@comic, @page, element) %></p>
+        <%= link_to 'Delete this element', [@comic, @page, element], class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %>
+      </li>
+    <% end %>
+    </ul>
   <% end %>
-  </ul>
-<% end %>
+</div>
 
-<p class="text-center"><%= link_to "Back to page #{@page.number}", comic_pages_path(@comic, page: @page.number) %></p>
+<p><%= link_to "Back to page #{@page.number}", comic_pages_path(@comic, page: @page.number) %></p>

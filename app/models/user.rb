@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   def editable_by?(user)
-    self == user
+    self == user || user.admin?
   end
 
   def admin?

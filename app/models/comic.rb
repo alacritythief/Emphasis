@@ -16,6 +16,10 @@ class Comic < ActiveRecord::Base
     self.pages.pluck(:chapter).uniq.sort
   end
 
+  def editable_by?(user)
+    self.user == user || user.admin?
+  end
+
   def self.authorized_find(user, id)
     if user.admin?
       find(id)
