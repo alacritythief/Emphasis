@@ -19,7 +19,8 @@ feature 'adding an element', focus: true do
 
     fill_in "Element Image URL", with: "http://placehold.it/700x950/b0b0b0/ffffff/&text=emphasis"
     fill_in "Unique ID Name", with: "Frank's Rampage"
-    find('#element_animation_type').find(:xpath, 'option[1]').select_option
+    find('#element_position').find(:xpath, 'option[1]').select_option
+    find('#element_align').find(:xpath, 'option[1]').select_option
 
     click_button "Add Element"
 
