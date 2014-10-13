@@ -3,7 +3,8 @@
 <span class="tr-buttons">
 <% if @comic.user == current_user %>
   <%= link_to 'Create Element', new_comic_page_element_path(@comic, @page), class: "button radius" %>
-  <%= link_to "#{@comic.name} Index", comic_path(@comic), class: "button radius" %>
+  <%= link_to "Page #{@page.number}", comic_pages_path(@comic, page: @page.number), class: "button radius" %>
+  <%= link_to "Contents", comic_path(@comic), class: "button radius" %>
 <% end %>
 </span>
 
@@ -23,19 +24,23 @@
       </p>
       <p>
         <strong>ID name:</strong><br>
-        <%= element.id_name.empty? ? "(none)" : element.id_name %>
+        <%= element.id_name || "(none)" %>
       </p>
       <p>
         <strong>Animation Type:</strong><br>
         <%= element.animation_type %>
       </p>
       <p>
+        <strong>Creator Notes:</strong><br>
+        <%= element.notes || "(none)" %>
+      </p>
+      <p>
         <strong>Custom CSS:</strong><br>
-        <%= element.css %>
+        <%= element.css || "(none)" %>
       </p>
       <p>
         <strong>Custom JS:</strong><br>
-        <%= element.js %>
+        <%= element.js || "(none)" %>
       </p>
 
       <p><%= link_to 'Edit this Element', edit_comic_page_element_path(@comic, @page, element) %></p>

@@ -92,8 +92,9 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
 }
 
 .cover img {
-  max-width: 700px;
   width: 100%;
+  max-width: 500px;
+  max-height: 100vh;
 }
 
 .container {

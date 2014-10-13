@@ -24,28 +24,18 @@
   </p>
 
   <p>
-    <%= f.label :id_name, 'Unique ID Name' %>
+    <%= f.label :id_name, "Unique ID Name" %>
     <%= f.text_field :id_name %>
   </p>
 
   <p>
-    <%= f.label :animation_type%>
+    <%= f.label :animation_type %>
     <%= f.select :animation_type, options_for_select(%w[none]) %>
   </p>
 
   <p>
-    <%= f.label :x %>
-    <%= f.text_field :x %>
-  </p>
-
-  <p>
-    <%= f.label :y %>
-    <%= f.text_field :y %>
-  </p>
-
-  <p>
-    <%= f.label :z %>
-    <%= f.text_field :z %>
+    <%= f.label :notes, "Creator Notes" %>
+    <%= f.text_area :notes %>
   </p>
 
   <p>
