@@ -11,7 +11,7 @@
 <span class="tr-buttons">
 <% if @comic.user == current_user %>
   <%= link_to 'Create Element', new_comic_page_element_path(@comic, page), class: "button radius" %>
-  <%= link_to 'List of Page Elements', comic_page_elements_path(@comic, page), class: "button radius" %>
+  <%= link_to 'Edit Elements', comic_page_elements_path(@comic, page), class: "button radius" %>
   <%= link_to 'Edit this Page', edit_comic_page_path(@comic, page), class: "button radius" %>
   <%= link_to "#{@comic.name} Index", comic_path(@comic), class: "button radius" %>
 <% end %>
@@ -20,26 +20,37 @@
 <hr>
 
 <div class="text-center">
-  <% page.elements.each do |element| %>
-    <p><%= element_image(element) %></p>
+  <% @elements.each do |element| %>
+    <%= element_image(element) %>
   <% end %>
-
-  <p><strong>
-    <% if page.page_type == "chapter" %>
-      Chapter <%= page.chapter %><%= !page.name.empty? ? ": #{page.name}" : "" %>
-    <% else %>
-      Page <%= page.number %>
-    <% end %>
-  </strong></p>
 </div>
-
-<div class="text-center">
-  <%= paginate @pagination %>
-</div>
-
-<p class="text-center">
-  <%= link_to "Back to \"#{@comic.name}\"", comic_path(@comic) %>
-</p>
 
 <% end %>
+
+<%= paginate @pagination %>
+
+<!-- The following is temporary until I find a way to pipe this through the asset pipeline: -->
+
+<style>
+  <% @elements.each do |element| %>
+    <% if !element.css.nil? %>
+      #<%= element.id_name %> {
+        <%= element.css.html_safe %>
+        }
+    <% end %>
+  <% end %>
+</style>
+
+<script>
+window.onload = function() {
+  var tl = new TimelineMax();
+  <% @elements.each do |element| %>
+    <% if !element.js.nil? %>
+      var <%= element.id_name %> = document.getElementById("<%= element.id_name %>");
+      <%= element.js.html_safe %>
+    <% end %>
+  <% end %>
+}
+</script>
+
 

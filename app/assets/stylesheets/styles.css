@@ -100,6 +100,7 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
   margin-top: 15px;
   margin-left: 160px;
   margin-right: 10px;
+  margin-bottom: 15px;
 }
 
 .form-inputs {
@@ -116,6 +117,11 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
 
 .index-img img {
   max-height: 200px;
+}
+
+.pagination {
+  bottom: 10px;
+  position: fixed;
 }
 
 .sidebar {

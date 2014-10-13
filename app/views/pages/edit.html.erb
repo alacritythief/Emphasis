@@ -39,4 +39,4 @@
 
 <p><%= link_to 'Delete this page', [@comic, @page], method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
 
-<p><%= link_to "Back to \"#{@comic.name}\" comic", comic_path(@comic) %></p>
+<p><%= link_to "Back to page #{@page.number}", comic_pages_path(@comic, page: @page.number) %></p>

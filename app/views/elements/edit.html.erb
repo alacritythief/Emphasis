@@ -36,6 +36,11 @@
   </p>
 
   <p>
+    <%= f.label :animation_type%>
+    <%= f.select :animation_type, options_for_select(%w[none]) %>
+  </p>
+
+  <p>
     <%= f.label :x %>
     <%= f.text_field :x %>
   </p>
@@ -51,8 +56,13 @@
   </p>
 
   <p>
-    <%= f.label :animation_type%>
-    <%= f.select :animation_type, options_for_select(%w[none]) %>
+    <%= f.label :css, "Advanced CSS" %>
+    <%= f.text_area :css %>
+  </p>
+
+  <p>
+    <%= f.label :js, "Advanced JS" %>
+    <%= f.text_area :js %>
   </p>
 
   <%= f.submit 'Edit Element', class: "button radius" %>
