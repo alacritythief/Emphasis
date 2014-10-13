@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009151929) do
+ActiveRecord::Schema.define(version: 20141012230947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20141009151929) do
     t.integer  "page_id",                         null: false
     t.integer  "user_id",                         null: false
     t.string   "image_file"
+    t.text     "css"
+    t.text     "js"
   end
 
   add_index "elements", ["page_id"], name: "index_elements_on_page_id", using: :btree

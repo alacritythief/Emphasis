@@ -4,7 +4,7 @@ class ElementsController < ApplicationController
   def index
     @comic = Comic.find(params[:comic_id])
     @page = Page.includes(:user, :elements).find(params[:page_id])
-    @elements = @page.elements
+    @elements = @page.elements.order(created_at: :desc)
   end
 
   def new
@@ -66,6 +66,6 @@ class ElementsController < ApplicationController
   private
 
   def element_params
-    params.require(:element).permit(:image_url, :image_file, :remove_image_file, :id_name, :x, :y, :z, :animation_type)
+    params.require(:element).permit(:image_url, :image_file, :remove_image_file, :id_name, :animation_type, :x, :y, :z, :css, :js)
   end
 end

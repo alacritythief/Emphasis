@@ -9,10 +9,16 @@
 <% end %>
 <% if !@pagination.nil? %>
   <li>
+    <%= link_to "First Page", comic_pages_path(@comic, page: @pagination.page.first.number) %>
+  </li>
+  <li>
     <%= link_to_next_page @pagination, 'Next Page >' %>
   </li>
   <li>
     <%= link_to_previous_page @pagination, '< Prev Page' %>
+  </li>
+  <li>
+    <%= link_to "Last Page", comic_pages_path(@comic, page: @pagination.page.last.number) %>
   </li>
 <% end %>
 <li class="divider"></li>

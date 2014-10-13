@@ -10,9 +10,9 @@ module ApplicationHelper
 
   def element_image(element)
     if element.image_url.present?
-      image_tag(element.image_url)
+      image_tag(element.image_url, id: element.id_name)
     else
-      image_tag(element.image_file)
+      image_tag(element.image_file, id: element.id_name)
     end
   end
 

@@ -13,8 +13,8 @@ This is currently a work-in-progress, so do not expect it to be functioning unti
 EMPHASIS TODO List
 ------------------
 
-* Further Spec/Model Tests
-* Canvas/JS animation system (most important)
+* Further Spec/Model Tests (important)
+* Animation templates for Elements
 * Collaborators join table
 * E-Mail verification and notification
 * Admin moderation
@@ -36,6 +36,7 @@ COMPLETED
 * Pagination via Kaminari
 * Allow the upload of images via Carrierwave/S3
 * Allow the deletion of uploaded S3 images
+* Custom Animations/CSS
 
 
 CURRENT ER DIAGRAM
@@ -98,6 +99,8 @@ CURRENT ER DIAGRAM
                   |     Element.animation_type          |
                   |     Element.page_id                 |
                   |     Element.user_id                 |
+                  |     Element.css                     |
+                  |     Element.js                      |
                   |                                     |
                   |     Additional Element Variables    |
                   |           Belongs to Page           |
