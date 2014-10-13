@@ -66,6 +66,14 @@ class ElementsController < ApplicationController
   private
 
   def element_params
-    params.require(:element).permit(:image_url, :image_file, :remove_image_file, :id_name, :animation_type, :notes, :css, :js)
+    params.require(:element).permit(:image_url,
+                                    :image_file,
+                                    :remove_image_file,
+                                    :id_name,
+                                    :position,
+                                    :align,
+                                    :notes,
+                                    :css,
+                                    :js)
   end
 end

@@ -23,36 +23,40 @@
 </div>
 <hr>
 
-<div class="text-center">
+<div class="page">
   <% @elements.each do |element| %>
     <%= element_image(element) %>
   <% end %>
 </div>
 
-
-
 <!-- The following is temporary until I find a way to pipe this through the asset pipeline: -->
 
 <style>
   <% @elements.each do |element| %>
-    <% if !element.css.nil? %>
-      #<%= element.id_name %> {
-        <%= element.css.html_safe %>
-        }
+    #<%= element.id_name %> {
+    <% if element.custom_position? %>
+      position: <%= element.position.html_safe %>;
     <% end %>
+    <% if element.custom_align? %>
+      float: <%= element.align.html_safe %>;
+    <% end %>
+    <% if !element.css.nil? %>
+      <%= element.css.html_safe %>
+    <% end %>
+    }
   <% end %>
 </style>
 
 <script>
-window.onload = function() {
-  var tl = new TimelineMax();
-  <% @elements.each do |element| %>
-    <% if !element.js.nil? %>
-      var <%= element.id_name %> = document.getElementById("<%= element.id_name %>");
-      <%= element.js.html_safe %>
+  window.onload = function() {
+    var tl = new TimelineMax();
+    <% @elements.each do |element| %>
+      <% if !element.js.nil? %>
+        var <%= element.id_name %> = document.getElementById("<%= element.id_name %>");
+        <%= element.js.html_safe %>
+      <% end %>
     <% end %>
-  <% end %>
-}
+  }
 </script>
 
 

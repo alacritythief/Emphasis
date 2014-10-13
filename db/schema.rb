@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013155720) do
+ActiveRecord::Schema.define(version: 20141013203009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,15 +31,16 @@ ActiveRecord::Schema.define(version: 20141013155720) do
     t.string   "image_url"
     t.string   "alt_text"
     t.text     "notes"
-    t.string   "animation_type", default: "none", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "id_name"
-    t.integer  "page_id",                         null: false
-    t.integer  "user_id",                         null: false
+    t.string   "id_name",                        null: false
+    t.integer  "page_id",                        null: false
+    t.integer  "user_id",                        null: false
     t.string   "image_file"
     t.text     "css"
     t.text     "js"
+    t.string   "position",   default: "none",    null: false
+    t.string   "align",      default: "default", null: false
   end
 
   add_index "elements", ["page_id"], name: "index_elements_on_page_id", using: :btree

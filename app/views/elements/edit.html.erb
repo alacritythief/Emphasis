@@ -36,8 +36,13 @@
   </p>
 
   <p>
-    <%= f.label :animation_type %>
-    <%= f.select :animation_type, options_for_select(%w[none]) %>
+    <%= f.label :position %>
+    <%= f.select :position, options_for_select(%w[none relative fixed absolute], @element.position) %>
+  </p>
+
+  <p>
+    <%= f.label :align %>
+    <%= f.select :align, options_for_select(%w[default left right], @element.align) %>
   </p>
 
   <p>

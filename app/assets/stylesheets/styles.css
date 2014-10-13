@@ -87,8 +87,9 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
 }
 
 .cover img {
-  max-width: 100%;
+  max-width: 500px;
   max-height: 90vh;
+  width:100%;
 }
 
 .container {
@@ -96,6 +97,27 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
   margin-left: 160px;
   margin-right: 10px;
   margin-bottom: 15px;
+}
+
+.element-index {
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.element-index img {
+  max-width: 100px;
+}
+
+.element-index li {
+  display: table-row;
+}
+
+.element-index li p {
+  border: 1px dotted #ccc;
+  font-size: 0.9em;
+  display: table-cell;
+  width: 200px;
+  padding: 10px;
 }
 
 .form-inputs {
@@ -107,16 +129,21 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
   padding: 5px 0;
 }
 
-.row {
-  max-width: 100%;
-}
-
 .index-img {
   height: 210px;
 }
 
 .index-img img {
   max-height: 200px;
+}
+
+.page {
+  width: 100%;
+  text-align: center;
+}
+
+.row {
+  max-width: 100%;
 }
 
 .sidebar {
