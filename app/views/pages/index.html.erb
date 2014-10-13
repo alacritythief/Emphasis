@@ -24,8 +24,12 @@
 <hr>
 
 <div class="page">
-  <% @elements.each do |element| %>
-    <%= element_image(element) %>
+  <% if @elements.empty? %>
+    <p>No elements created yet!</p>
+  <% else %>
+    <% @elements.each do |element| %>
+      <%= element_image(element) %>
+    <% end %>
   <% end %>
 </div>
 
