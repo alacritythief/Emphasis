@@ -119,11 +119,6 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
   max-height: 200px;
 }
 
-.pagination {
-  bottom: 10px;
-  position: fixed;
-}
-
 .sidebar {
   background: #fff;
   border-right: 1px solid #ccc;

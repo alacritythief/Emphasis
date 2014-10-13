@@ -17,6 +17,10 @@
 <% end %>
 </span>
 
+<% end %>
+<div>
+<%= paginate @pagination %>
+</div>
 <hr>
 
 <div class="text-center">
@@ -25,9 +29,7 @@
   <% end %>
 </div>
 
-<% end %>
 
-<%= paginate @pagination %>
 
 <!-- The following is temporary until I find a way to pipe this through the asset pipeline: -->
 

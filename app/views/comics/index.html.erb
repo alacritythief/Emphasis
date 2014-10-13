@@ -3,7 +3,10 @@
   <%= link_to 'Add Comic', new_comic_path, class: "button radius" %>
 </span>
 
+<%= paginate @comics %>
 <hr>
+
+
 
 <ul class="text-center comic-index small-block-grid-1 medium-block-grid-4 large-block-grid-6">
   <% if @comics.empty? %>
@@ -13,4 +16,4 @@
   <%end%>
 </ul>
 
-<%= paginate @comics %>
+
