@@ -38,11 +38,14 @@
 <style>
   <% @elements.each do |element| %>
     #<%= element.id_name %> {
+    <% if element.custom_align? %>
+      float: <%= element.align.html_safe %>;
+    <% end %>
     <% if element.custom_position? %>
       position: <%= element.position.html_safe %>;
     <% end %>
-    <% if element.custom_align? %>
-      float: <%= element.align.html_safe %>;
+    <% if !element.z.nil? %>
+      z-index: <%= element.z %>;
     <% end %>
     <% if !element.css.nil? %>
       <%= element.css.html_safe %>

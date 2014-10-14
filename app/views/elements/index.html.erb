@@ -36,6 +36,10 @@
           <%= element.align %>
         </p>
         <p>
+          <strong>Z-Index:</strong><br>
+          <%= !element.z.nil? ? element.z : "(none)" %>
+        </p>
+        <p>
           <strong>Creator Notes:</strong><br>
           <%= !element.notes.nil? ? element.notes : "(none)" %>
         </p>

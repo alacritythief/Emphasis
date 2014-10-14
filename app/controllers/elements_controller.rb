@@ -74,6 +74,7 @@ class ElementsController < ApplicationController
                                     :align,
                                     :notes,
                                     :css,
-                                    :js)
+                                    :js,
+                                    :z)
   end
 end

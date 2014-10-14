@@ -97,7 +97,7 @@ CURRENT ER DIAGRAM
                   |     Element.notes                   |      |     |
                   |     Element.position                <------------+
                   |     Element.align                   |      |
-                  |     Element.z (to be readded)       <------+
+                  |     Element.z                       <------+
                   |     Element.page_id                 |
                   |     Element.user_id                 |
                   |     Element.css                     |
