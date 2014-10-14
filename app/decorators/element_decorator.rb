@@ -1,15 +1,6 @@
 class ElementDecorator < Draper::Decorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
-
   def command
     name = object.id_name
     entries = parse
@@ -32,10 +23,10 @@ class ElementDecorator < Draper::Decorator
         end
       end
       values = parameters.join(",")
+      output = "TweenMax.to(#{name}, #{time}, {#{values}});"
+      output.html_safe
     end
 
-    output = "TweenMax.to(#{name}, #{time}, {#{values}});"
-    output.html_safe
   end
 
   def parse
@@ -51,4 +42,7 @@ class ElementDecorator < Draper::Decorator
 end
 
 
-# TweenMax.to(cat3, 1, {top:"200", right:"200", repeat: -1, yoyo:true, delay: 1});
+# cats.onmouseout = function() {
+#   wizard.style.display = "inline-block";
+#   cats.style.display = "none";
+# }
