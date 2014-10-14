@@ -9,6 +9,7 @@ gem 'mini_magick'
 gem 'devise'
 gem 'fog'
 gem 'greensock-rails'
+gem 'draper', '~> 1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'

@@ -58,9 +58,9 @@
   window.onload = function() {
     var tl = new TimelineMax();
     <% @elements.each do |element| %>
-      <% if !element.js.nil? %>
-        var <%= element.id_name %> = document.getElementById("<%= element.id_name %>");
-        <%= element.js.html_safe %>
+      var <%= element.id_name %> = document.getElementById("<%= element.id_name %>");
+      <% if !element.js.empty? %>
+        <%= element.decorate.command %>
       <% end %>
     <% end %>
   }
