@@ -1,8 +1,9 @@
 class ComicsController < ApplicationController
+  INDEX_COMICS = 12
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @comics = Comic.includes(:user).order(updated_at: :desc)
+    @comics = Comic.includes(:user).order(created_at: :desc).page(params[:page]).per(INDEX_COMICS)
   end
 
   def show

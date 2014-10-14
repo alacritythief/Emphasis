@@ -76,11 +76,6 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
   text-decoration: none;
 }
 
-.chapters, .chapters ul, .chapters li {
-  margin: 0;
-  padding: 8px 0;
-}
-
 .comic-index ul, li {
   line-height: 110%;
   list-style: none;
@@ -92,8 +87,9 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
 }
 
 .cover img {
-  max-width: 700px;
-  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  width:100%;
 }
 
 .container {
@@ -103,12 +99,34 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
   margin-bottom: 15px;
 }
 
+.element-index {
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.element-index img {
+  max-width: 100px;
+}
+
+.element-index li {
+  display: table-row;
+}
+
+.element-index li p {
+  border: 1px dotted #ccc;
+  font-size: 0.9em;
+  display: table-cell;
+  width: 200px;
+  padding: 10px;
+}
+
 .form-inputs {
   width: 100%;
 }
 
-.row {
-  max-width: 100%;
+.list ul, .list li {
+  margin: 0;
+  padding: 5px 0;
 }
 
 .index-img {
@@ -119,9 +137,13 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
   max-height: 200px;
 }
 
-.pagination {
-  bottom: 10px;
-  position: fixed;
+.page {
+  width: 100%;
+  text-align: center;
+}
+
+.row {
+  max-width: 100%;
 }
 
 .sidebar {

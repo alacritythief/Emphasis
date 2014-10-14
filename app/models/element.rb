@@ -2,7 +2,8 @@ class Element < ActiveRecord::Base
   belongs_to :page
   belongs_to :user
 
-  validates :animation_type, presence: true
+  validates :id_name, presence: true
+  validates :position, presence: true
   validate :url_or_upload
 
   mount_uploader :image_file, ElementImageUploader
@@ -13,6 +14,18 @@ class Element < ActiveRecord::Base
     else
       where(user: user).find(id)
     end
+  end
+
+  def custom_align?
+    self.align != "default"
+  end
+
+  def custom_position?
+    self.position != "none"
+  end
+
+  def editable_by?(user)
+    self.user == user || user.admin?
   end
 
   def url_or_upload

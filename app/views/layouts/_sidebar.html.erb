@@ -1,6 +1,6 @@
 <ul class="side-nav text-center">
   <li>
-    <p><% if user_signed_in? %><%= current_user.username %><% end %></p>
+    <% if user_signed_in? %><%= link_to current_user.username, edit_user_registration_path(current_user) %><% end %>
   </li>
 <% if !@comic.nil? && !@comic.pages.empty? %>
   <li>
@@ -9,7 +9,7 @@
 <% end %>
 <% if !@pagination.nil? %>
   <li>
-    <%= link_to "First Page", comic_pages_path(@comic, page: @pagination.page.first.number) %>
+    <%= link_to "First Page", comic_pages_path(@comic, page: 1) %>
   </li>
   <li>
     <%= link_to_next_page @pagination, 'Next Page >' %>
@@ -18,7 +18,7 @@
     <%= link_to_previous_page @pagination, '< Prev Page' %>
   </li>
   <li>
-    <%= link_to "Last Page", comic_pages_path(@comic, page: @pagination.page.last.number) %>
+    <%= link_to "Last Page", comic_pages_path(@comic, page: @pagination.num_pages) %>
   </li>
 <% end %>
 <li class="divider"></li>

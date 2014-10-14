@@ -1,17 +1,12 @@
 require 'rails_helper'
 
-feature 'adding an element', focus: true do
+feature 'adding an element' do
   before :each do
     @user = FactoryGirl.create(:user)
     sign_in_as(@user)
 
-    @comic = Comic.create(name: "Frank the Tank",
-      description: "Super-Frank arms his guns for another round of ammo!",
-      creators: "Satoshi Nakamoto",
-      cover_img_url: "http://placehold.it/200x250/b0b0b0/ffffff/&text=emphasis",
-      user_id: @user.id)
-
-    @page = Page.create(chapter: 1, number: 1, name: "thing", comic_id: @comic.id, user_id: @user.id)
+    @comic = FactoryGirl.create(:comic, user: @user)
+    @page = FactoryGirl.create(:page, user: @user, comic: @comic)
   end
 
   scenario 'user submits valid element' do
@@ -19,12 +14,13 @@ feature 'adding an element', focus: true do
 
     fill_in "Element Image URL", with: "http://placehold.it/700x950/b0b0b0/ffffff/&text=emphasis"
     fill_in "Unique ID Name", with: "Frank's Rampage"
-    find('#element_animation_type').find(:xpath, 'option[1]').select_option
+    find('#element_position').find(:xpath, 'option[1]').select_option
+    find('#element_align').find(:xpath, 'option[1]').select_option
 
     click_button "Add Element"
 
     expect(page).to have_content("Element successfully created")
-    expect(page).to have_content("Page 1")
+    expect(page).to have_content("Page #{@page.number}")
   end
 
   scenario 'user submits a blank element form' do
