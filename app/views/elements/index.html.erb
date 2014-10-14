@@ -49,8 +49,8 @@
         </p>
 
         <p>
-        <%= link_to 'Edit Element', edit_comic_page_element_path(@comic, @page, element) %>
-        <%= link_to 'Delete Element', [@comic, @page, element], class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
+        <%= link_to 'Edit Element', edit_comic_page_element_path(@comic, @page, element), class: "button radius" %>
+        <%= link_to 'Delete Element', [@comic, @page, element], method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></p>
       </li>
     <% end %>
     </ul>

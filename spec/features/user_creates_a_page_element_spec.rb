@@ -5,13 +5,8 @@ feature 'adding an element', focus: true do
     @user = FactoryGirl.create(:user)
     sign_in_as(@user)
 
-    @comic = Comic.create(name: "Frank the Tank",
-      description: "Super-Frank arms his guns for another round of ammo!",
-      creators: "Satoshi Nakamoto",
-      cover_img_url: "http://placehold.it/200x250/b0b0b0/ffffff/&text=emphasis",
-      user_id: @user.id)
-
-    @page = Page.create(chapter: 1, number: 1, name: "thing", comic_id: @comic.id, user_id: @user.id)
+    @comic = FactoryGirl.create(:comic, user: @user)
+    @page = FactoryGirl.create(:page, user: @user, comic: @comic)
   end
 
   scenario 'user submits valid element' do
