@@ -5,22 +5,24 @@ Emphasis
 
 [emphasis.herokuapp.com](https://emphasis.herokuapp.com/)
 
-A "Breakable Toy" project for Launch Academy, Emphasis is an animation framework, as well as a content management system for webcomics built with Ruby on Rails.
-
-This is currently a work-in-progress, so do not expect it to be functioning until Mid-October 2014.
-
+A "Breakable Toy" project for Launch Academy, Emphasis is a content management system & framework built with Ruby on Rails that allows you to create animated & interactive webcomics.
 
 EMPHASIS TODO List
 ------------------
 
-* Further Spec/Model Tests (important)
-* Animation templates for Elements
+* Add further Spec/Model tests (important)
+* E-Mail verification
+* Fix page gap bug
+* Polish and optimization
+
+
+EXTRA:
+------
+
 * Collaborators join table
-* E-Mail verification and notification
+* Animation templates for Elements
 * Admin moderation
 * Thumbnail optimization & resizing
-* Last interface improvements
-* Polish and optimization
 
 
 COMPLETED
@@ -93,10 +95,9 @@ CURRENT ER DIAGRAM
                   |     Element.id_name                 |            |
                   |     Element.alt_text                <------+     |
                   |     Element.notes                   |      |     |
-                  |     Element.x                       <------------+
-                  |     Element.y                       |      |
-                  |     Element.z                       <------+
-                  |     Element.animation_type          |
+                  |     Element.position                <------------+
+                  |     Element.align                   |      |
+                  |     Element.z (to be readded)       <------+
                   |     Element.page_id                 |
                   |     Element.user_id                 |
                   |     Element.css                     |

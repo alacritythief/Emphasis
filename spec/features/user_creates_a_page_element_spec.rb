@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'adding an element', focus: true do
+feature 'adding an element' do
   before :each do
     @user = FactoryGirl.create(:user)
     sign_in_as(@user)
@@ -20,7 +20,7 @@ feature 'adding an element', focus: true do
     click_button "Add Element"
 
     expect(page).to have_content("Element successfully created")
-    expect(page).to have_content("Page 1")
+    expect(page).to have_content("Page #{@page.number}")
   end
 
   scenario 'user submits a blank element form' do

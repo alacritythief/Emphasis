@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013203009) do
+ActiveRecord::Schema.define(version: 20141014013830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20141013203009) do
     t.text     "js"
     t.string   "position",   default: "none",    null: false
     t.string   "align",      default: "default", null: false
+    t.integer  "z"
   end
 
   add_index "elements", ["page_id"], name: "index_elements_on_page_id", using: :btree
