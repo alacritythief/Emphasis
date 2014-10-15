@@ -14,7 +14,7 @@ class ElementDecorator < Draper::Decorator
         end
         commands.shift(2)
         move(time, commands)
-      when "onmouseclick", "onmouseup", "onmousedown", "onmouseover", "onmouseout"
+      when "onclick", "onmouseup", "onmousedown", "onmouseover", "onmouseout"
         commands.shift
         mouse(type, commands)
     end
@@ -22,6 +22,7 @@ class ElementDecorator < Draper::Decorator
 
   def mouse(type, array)
     parameters = []
+
     array.each do |k, v|
       if v.strip == "show"
         parameters << "#{k}.style.display = 'inline-block';"
@@ -29,8 +30,8 @@ class ElementDecorator < Draper::Decorator
         parameters << "#{k}.style.display = 'none';"
       end
     end
-    values = parameters.join(" ")
 
+    values = parameters.join(" ")
     output = "#{object.id_name}.#{type} = function() {#{values}}"
     output.html_safe
   end
@@ -61,16 +62,4 @@ class ElementDecorator < Draper::Decorator
     end
     commands_array
   end
-
 end
-
-# mouse example, to be implemented
-# cats.onmouseout = function() {
-#   wizard.style.display = "inline-block";
-#   cats.style.display = "none";
-# }
-
-# wizard.onmouseover = function() {
-#   wizard.style.display = "none";
-#   cats.style.display = "inline-block";
-# }
