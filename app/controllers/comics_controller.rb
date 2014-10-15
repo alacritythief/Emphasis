@@ -11,6 +11,7 @@ class ComicsController < ApplicationController
   def show
     @comic = Comic.includes(:pages).find(params[:id])
     @pagination = @comic.chapter_pages.page(1).per(COMIC_PAGE)
+    @page_counter = 0
   end
 
   def new
