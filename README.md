@@ -14,6 +14,7 @@ EMPHASIS TODO List
 * E-Mail verification
 * Fix page gap bug
 * Polish and optimization
+* Documentation for element script interpreter
 
 
 EXTRA:
@@ -34,11 +35,15 @@ COMPLETED
 * Login w/ Devise
 * CRUD features of models
 * Schema with migrations
-* Basic UI, views, forms, styling
+* UI, views, forms, styling
 * Pagination via Kaminari
 * Allow the upload of images via Carrierwave/S3
 * Allow the deletion of uploaded S3 images
-* Custom Animations/CSS
+* Custom CSS
+* JS-powered Animations via Greensock
+* JS mouse events supported for hiding and showing images
+* Element script interpreter (coverts user shorthand to JS)
+
 
 
 CURRENT ER DIAGRAM

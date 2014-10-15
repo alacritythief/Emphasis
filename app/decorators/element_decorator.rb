@@ -6,14 +6,15 @@ class ElementDecorator < Draper::Decorator
     type = commands[0][0].downcase
 
     case type
-      when "move"
+      when "animate"
+
         if commands[1].include?("time")
           time = commands[1][1]
         else
           time = 1
         end
         commands.shift(2)
-        move(time, commands)
+        animate(time, commands)
       when "onclick", "onmouseup", "onmousedown", "onmouseover", "onmouseout"
         commands.shift
         mouse(type, commands)
@@ -36,7 +37,7 @@ class ElementDecorator < Draper::Decorator
     output.html_safe
   end
 
-  def move(time, array)
+  def animate(time, array)
     parameters = []
 
     array.each do |k,v|
@@ -55,11 +56,12 @@ class ElementDecorator < Draper::Decorator
   def parse
     commands_array = []
     raw_code = object.js
-    script = raw_code.gsub(/\r\n/,"").split(";")
+    script = raw_code.gsub(/; /, ';').gsub(/: /, ':').gsub(/\r\n/,"").split(";")
 
     script.each do |command|
       commands_array << command.split(":")
     end
+
     commands_array
   end
 end
