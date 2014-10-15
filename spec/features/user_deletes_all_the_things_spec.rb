@@ -7,6 +7,7 @@ feature 'user deletes all the things' do
 
     @comic = FactoryGirl.create(:comic, user: @user)
     @page = FactoryGirl.create(:page, user: @user, comic: @comic)
+    @element = FactoryGirl.create(:element, user: @user, page_id: @page.id)
   end
 
   scenario 'user deletes a comic' do
@@ -19,11 +20,20 @@ feature 'user deletes all the things' do
   end
 
   scenario 'user deletes a page' do
-    visit comic_pages_path(@comic, @page)
+    visit edit_comic_page_path(@comic, @page)
 
-    click_on "Edit this Page"
     click_link "Delete this page"
 
     expect(page).to have_content("Page deleted.")
+  end
+
+  scenario 'user deletes an element' do
+    visit comic_page_elements_path(@comic, @page)
+
+    expect(page).to have_content("#{@element.id_name}")
+
+    click_on "Delete Element"
+
+    expect(page).to have_content("Element deleted.")
   end
 end

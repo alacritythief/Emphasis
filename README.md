@@ -12,18 +12,19 @@ EMPHASIS TODO List
 
 * Add further Spec/Model tests (important)
 * E-Mail verification
-* Fix page gap bug
+* Documentation for custom element shorthand
 * Polish and optimization
-* Documentation for element script interpreter
 
 
 EXTRA:
 ------
 
+* Fix page gap bug
 * Collaborators join table
 * Animation templates for Elements
-* Admin moderation
+* Admin moderation, user profiles & pages
 * Thumbnail optimization & resizing
+* Customize alt_text for elements
 
 
 COMPLETED
@@ -39,11 +40,10 @@ COMPLETED
 * Pagination via Kaminari
 * Allow the upload of images via Carrierwave/S3
 * Allow the deletion of uploaded S3 images
-* Custom CSS
 * JS-powered Animations via Greensock
-* JS mouse events supported for hiding and showing images
-* Element script interpreter (coverts user shorthand to JS)
-
+* Custom CSS for elements
+* Element script interpreter via custom decorator (coverts user shorthand to whitelisted JS)
+* JS mouse events supported for only hiding and showing images
 
 
 CURRENT ER DIAGRAM
