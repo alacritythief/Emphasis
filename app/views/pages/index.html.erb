@@ -55,11 +55,11 @@
 <script>
   window.onload = function() {
     var tl = new TimelineMax();
-    <% @elements.each do |element| %>
-      var <%= element.id_name %> = document.getElementById("<%= element.id_name %>");
-      <% if !element.js.empty? %>
-        <%= element.decorate.command %>
-      <% end %>
+  <% @elements.each do |element| %>
+    var <%= element.id_name %> = document.getElementById("<%= element.id_name %>");
+  <% if !element.js.empty? %>
+    <%= element.decorate.command %>
+  <% end %>
     <% end %>
   }
 </script>
