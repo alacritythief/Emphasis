@@ -124,6 +124,13 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
   width: 100%;
 }
 
+.grayed {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 0.875rem;
+  color: #a9a9a9;
+  padding: 0.4375rem 0.875rem;
+}
+
 .list ul, .list li {
   margin: 0;
   padding: 5px 0;

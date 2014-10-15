@@ -1,5 +1,7 @@
 class ComicsController < ApplicationController
   INDEX_COMICS = 12
+  COMIC_PAGE = 1
+
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -8,6 +10,8 @@ class ComicsController < ApplicationController
 
   def show
     @comic = Comic.includes(:pages).find(params[:id])
+    @pagination = @comic.chapter_pages.page(1).per(COMIC_PAGE)
+    @page_counter = 0
   end
 
   def new
