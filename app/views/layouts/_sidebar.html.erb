@@ -12,10 +12,18 @@
     <%= link_to "First Page", comic_pages_path(@comic, page: 1) %>
   </li>
   <li>
-    <%= link_to_next_page @pagination, 'Next Page >' %>
+    <% if !@pagination.last_page? %>
+      <%= link_to "Next Page >", comic_pages_path(@comic, page: @pagination.next_page) %>
+    <% else %>
+      <div class="grayed">Next Page ></div>
+    <% end %>
   </li>
   <li>
-    <%= link_to_previous_page @pagination, '< Prev Page' %>
+    <% if !@pagination.first_page? %>
+      <%= link_to "< Previous Page", comic_pages_path(@comic, page: @pagination.prev_page) %>
+    <% else %>
+      <div class="grayed">< Previous Page</div>
+    <% end %>
   </li>
   <li>
     <%= link_to "Last Page", comic_pages_path(@comic, page: @pagination.num_pages) %>
