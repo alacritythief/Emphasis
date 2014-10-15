@@ -10,7 +10,7 @@ A "Breakable Toy" project for Launch Academy, Emphasis is a content management s
 EMPHASIS TODO List
 ------------------
 
-* Add further Spec/Model tests (important)
+* Add further Spec/Model tests
 * E-Mail verification
 * Documentation for custom element shorthand
 * Polish and optimization
@@ -19,7 +19,6 @@ EMPHASIS TODO List
 EXTRA:
 ------
 
-* Fix page gap bug
 * Collaborators join table
 * Animation templates for Elements
 * Admin moderation, user profiles & pages
@@ -44,6 +43,7 @@ COMPLETED
 * Custom CSS for elements
 * Element script interpreter via custom decorator (coverts user shorthand to whitelisted JS)
 * JS mouse events supported for only hiding and showing images
+* Contents page count bug fixed
 
 
 CURRENT ER DIAGRAM
