@@ -13,7 +13,7 @@ class ElementDecorator < Draper::Decorator
       time = 1
     end
 
-    if type == "move"
+    if type.downcase == "move"
       entries.shift(2)
       entries.each do |k,v|
         if !v.nil?
@@ -41,7 +41,7 @@ class ElementDecorator < Draper::Decorator
   end
 end
 
-
+# mouse example, to be implemented
 # cats.onmouseout = function() {
 #   wizard.style.display = "inline-block";
 #   cats.style.display = "none";

@@ -33,16 +33,14 @@
   <% end %>
 </div>
 
-<!-- The following is temporary until I find a way to pipe this through the asset pipeline: -->
-
 <style>
   <% @elements.each do |element| %>
     #<%= element.id_name %> {
     <% if element.custom_align? %>
-      float: <%= element.align.html_safe %>;
+      float: <%= element.align %>;
     <% end %>
     <% if element.custom_position? %>
-      position: <%= element.position.html_safe %>;
+      position: <%= element.position %>;
     <% end %>
     <% if !element.z.nil? %>
       z-index: <%= element.z %>;
