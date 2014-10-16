@@ -25,6 +25,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
     @page.comic_id = @comic.id
     @page.user = current_user
+    @page.number = @comic.chapter_pages.count + 1
 
     if @page.save
       flash[:notice] = "Page successfully created!"

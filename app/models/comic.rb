@@ -9,7 +9,7 @@ class Comic < ActiveRecord::Base
   validate :url_or_upload
 
   def chapter_pages
-    self.pages.order(chapter: :asc, number: :asc)
+    self.pages.order(number: :asc)
   end
 
   def chapters
