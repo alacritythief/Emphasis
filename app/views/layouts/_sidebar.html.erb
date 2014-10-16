@@ -24,9 +24,9 @@
   </li>
   <li>
     <% if !@pagination.first_page? %>
-      <%= link_to "< Previous Page", comic_pages_path(@comic, page: @pagination.prev_page) %>
+      <%= link_to "< Prev Page", comic_pages_path(@comic, page: @pagination.prev_page) %>
     <% else %>
-      <div class="grayed">< Previous Page</div>
+      <div class="grayed">< Prev Page</div>
     <% end %>
   </li>
   <li>
