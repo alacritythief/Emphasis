@@ -26,6 +26,10 @@ class PagesController < ApplicationController
     @page.comic_id = @comic.id
     @page.user = current_user
 
+    if @page.number > @comic.chapter_pages.count + 1
+      @page.number = @comic.chapter_pages.count + 1
+    end
+
     if @page.save
       flash[:notice] = "Page successfully created!"
       redirect_to comic_path(@comic)

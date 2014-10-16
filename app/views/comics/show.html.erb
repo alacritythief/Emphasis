@@ -27,7 +27,7 @@
       <% @comic.chapter_pages.each do |page| %>
         <% if page.page_type == "chapter" %>
           <li>
-            <strong><%= link_to "Chapter #{page.chapter}: #{page.name}", comic_pages_path(@comic, page: @page_counter += 1) %></strong>
+            <strong><%= link_to !page.name.empty? ? "Chapter #{page.chapter}: #{page.name}" : "Chapter #{page.chapter}", comic_pages_path(@comic, page: @page_counter += 1) %></strong>
             <% if user_signed_in? && @comic.editable_by?(current_user) %><br>
               <%= link_to 'edit', edit_comic_page_path(@comic, page) %> |
               <%= link_to 'delete', [@comic, page], method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %> |
@@ -36,9 +36,9 @@
           </li>
         <% else %>
           <li>
-            <%= link_to "Page #{page.number}", comic_pages_path(@comic, page: @page_counter += 1) %>
+            <%= link_to !page.name.empty? ? "Page #{page.number}: #{page.name}" : "Page #{page.number}", comic_pages_path(@comic, page: @page_counter += 1) %>
             <% if user_signed_in? && @comic.editable_by?(current_user) %><br>
-              <%= page.name %> <%= link_to 'edit', edit_comic_page_path(@comic, page) %> |
+              <%= link_to 'edit', edit_comic_page_path(@comic, page) %> |
               <%= link_to 'delete', [@comic, page], method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %> |
               <%= link_to 'elements', comic_page_elements_path(@comic, page) %>
             <% end %>

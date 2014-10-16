@@ -16,8 +16,7 @@ feature 'adding a comic' do
     visit new_comic_page_path(@comic)
 
     fill_in "Chapter Number", with: "1"
-    fill_in "Page/Chapter Name", with: "Frank's Rampage"
-    fill_in "Page Number", with: "1"
+    fill_in "Name", with: "Frank's Rampage"
     find('#page_page_type').find(:xpath, 'option[2]').select_option
 
     click_button "Create Page"
@@ -34,6 +33,5 @@ feature 'adding a comic' do
 
     expect(page).to have_content("Warning: Page not created")
     expect(page).to have_content("error")
-    expect(page).to have_content("Number can't be blank")
   end
 end
