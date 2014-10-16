@@ -20,11 +20,11 @@
 
   <p>
     <%= f.label :number, 'Page Number' %>
-    <%= f.text_field :number %>
+    <%= f.text_field :number, placeholder: "Suggested page number: #{@suggested_page}" %>
   </p>
 
   <p>
-    <%= f.label :name,'Page/Chapter Name' %>
+    <%= f.label :name,'Title' %>
     <%= f.text_field :name %>
   </p>
 
