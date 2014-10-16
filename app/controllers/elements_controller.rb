@@ -3,7 +3,7 @@ class ElementsController < ApplicationController
 
   def index
     @comic = Comic.find(params[:comic_id])
-    @page = Page.includes(:user, :elements).find(params[:page_id])
+    @page = Page.find(params[:page_id])
     @elements = @page.elements.order(created_at: :desc)
   end
 

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def index
     @comic = Comic.includes(:user, :pages).find(params[:comic_id])
-    @pagination = @comic.chapter_pages.includes(:elements).page(params[:page]).per(COMIC_PAGE)
+    @pagination = @comic.chapter_pages.page(params[:page]).per(COMIC_PAGE)
     @elements = @pagination.first.elements.order(created_at: :desc)
   end
 
