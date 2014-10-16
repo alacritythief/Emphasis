@@ -10,7 +10,6 @@ A "Breakable Toy" project for Launch Academy, Emphasis is a content management s
 EMPHASIS TODO List
 ------------------
 
-* Add further Spec/Model tests
 * E-Mail verification
 * Documentation for custom element shorthand
 * Polish and optimization
@@ -19,6 +18,7 @@ EMPHASIS TODO List
 EXTRA:
 ------
 
+* More tests
 * Collaborators join table
 * Animation templates for Elements
 * Admin moderation, user profiles & pages
