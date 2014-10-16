@@ -24,6 +24,7 @@ EXTRA:
 * Admin moderation, user profiles & pages
 * Thumbnail optimization & resizing
 * Customize alt_text for elements
+* Replace Kaminari with custom pagination system
 
 
 COMPLETED
