@@ -18,6 +18,7 @@ class PagesController < ApplicationController
   def new
     @comic = Comic.authorized_find(current_user, params[:comic_id])
     @page = Page.new
+    @suggested_page = @comic.chapter_pages.last.nil? ? 1 : @comic.chapter_pages.last.number + 1
   end
 
   def create

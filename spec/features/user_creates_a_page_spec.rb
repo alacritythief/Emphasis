@@ -16,7 +16,7 @@ feature 'adding a comic' do
     visit new_comic_page_path(@comic)
 
     fill_in "Chapter Number", with: "1"
-    fill_in "Page/Chapter Name", with: "Frank's Rampage"
+    fill_in "Title", with: "Frank's Rampage"
     fill_in "Page Number", with: "1"
     find('#page_page_type').find(:xpath, 'option[2]').select_option
 
