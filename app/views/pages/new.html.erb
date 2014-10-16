@@ -19,6 +19,11 @@
   </p>
 
   <p>
+    <%= f.label :number, 'Page Number' %>
+    <%= f.text_field :number, placeholder: "Suggested page number: #{@comic.chapter_pages.last.number + 1}" %>
+  </p>
+
+  <p>
     <%= f.label :name,'Name' %>
     <%= f.text_field :name %>
   </p>
