@@ -9,7 +9,11 @@
 <% end %>
 <% if !@pagination.nil? %>
   <li>
-    <%= link_to "First Page", comic_pages_path(@comic, page: 1) %>
+    <% if !@comic.chapter_pages.empty? %>
+      <%= link_to "First Page", comic_pages_path(@comic, page: 1) %>
+    <% else %>
+      <div class="grayed">First Page</div>
+    <% end %>
   </li>
   <li>
     <% if !@pagination.last_page? %>
@@ -26,7 +30,11 @@
     <% end %>
   </li>
   <li>
+  <% if !@comic.chapter_pages.empty? %>
     <%= link_to "Last Page", comic_pages_path(@comic, page: @pagination.num_pages) %>
+  <% else %>
+    <div class="grayed">Last Page</div>
+  <% end %>
   </li>
 <% end %>
 <li class="divider"></li>
