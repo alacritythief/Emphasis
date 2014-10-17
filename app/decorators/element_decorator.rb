@@ -7,7 +7,6 @@ class ElementDecorator < Draper::Decorator
 
     case type
       when "animate"
-
         if commands[1].include?("time")
           time = commands[1][1]
         else
