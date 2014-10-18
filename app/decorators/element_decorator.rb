@@ -30,7 +30,6 @@ class ElementDecorator < Draper::Decorator
         parameters << "#{k}.style.display = 'none';"
       end
     end
-
     values = parameters.join(" ")
     output = "#{object.id_name}.#{type} = function() {#{values}}"
     output.html_safe
@@ -46,7 +45,6 @@ class ElementDecorator < Draper::Decorator
         parameters << k
       end
     end
-
     values = parameters.join(",")
     output = "TweenMax.to(#{object.id_name}, #{time}, {#{values}});"
     output.html_safe
@@ -54,13 +52,13 @@ class ElementDecorator < Draper::Decorator
 
   def parse
     commands_array = []
+
     raw_code = object.js
     script = raw_code.gsub(/; /, ';').gsub(/: /, ':').gsub(/\r\n/,"").split(";")
 
     script.each do |command|
       commands_array << command.split(":")
     end
-
     commands_array
   end
 end
