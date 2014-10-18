@@ -18,7 +18,15 @@ class PagesController < ApplicationController
   def new
     @comic = Comic.authorized_find(current_user, params[:comic_id])
     @page = Page.new
-    @suggested_page = @comic.chapter_pages.last.nil? ? 1 : @comic.chapter_pages.last.number + 1
+    @suggested_page = suggest_page(@comic)
+  end
+
+  def suggest_page(comic)
+    if comic.chapter_pages.last.nil?
+      1
+    else
+      comic.chapter_pages.last.number + 1
+    end
   end
 
   def create
@@ -70,6 +78,10 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:chapter, :name, :number, :page_type, :comic_id)
+    params.require(:page).permit(:chapter,
+                                :name,
+                                :number,
+                                :page_type,
+                                :comic_id)
   end
 end
