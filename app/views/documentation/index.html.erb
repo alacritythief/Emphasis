@@ -1,0 +1,103 @@
+<h1>About & Documentation</h1>
+
+<hr>
+
+<h4>About Emphasis:</h4>
+
+<div>
+  <img class="about-avatar" src="https://avatars1.githubusercontent.com/u/4927335">
+  <p><strong>Emphasis</strong> is a content management system that allows you to
+    create animated and interactive webcomics.<br>
+    This app project was created by <a href="http://alacritystudios.com/">Andy Wong</a>, as a "Breakable Toy" project for
+    <a href="http://www.launchacademy.com/">Launch Academy</a>.
+  </p>
+</div>
+
+<h4>Other Projects by Andy Wong:</h4>
+
+<div class="list">
+  <ul>
+    <li>
+      <p>
+        <a href="https://caturday-funtime.herokuapp.com/">Caturday Funtime!</a><br>
+        A Ruby on Rails app that allows users to post cat pictures and review them.<br>
+        Created with other members of the "Caturday-Funteam":
+        <a href="https://github.com/alpha-tango">Anne</a>, <a href="https://github.com/kms617">Kristin</a>, and <a href="https://github.com/compression">Josh</a>.
+      </p>
+    </li>
+    <li>
+      <p>
+        <a href="http://asktheduck.herokuapp.com/">Ask the Duck!</a><br>
+        A ”Ship It Saturday” hackaton side project: A virtual rubber duck you can ask programming<br>
+        and search questions to. Made with Sinatra and built in a day.
+      </p>
+    </li>
+    <li>
+      <p>
+        <a href="https://github.com/alacritythief/Ultimate-Pong">Ultimate Pong</a><br>
+        A variation on the game Pong using the Gosu/Ashton libraries in Ruby.<br>
+        The game features box collision detection, local multiplayer, particle effects,<br>
+        AI, sound, and scoring, plus a special bonus mode.
+      </p>
+    </li>
+  </ul>
+</div>
+
+<h4>Using the "Shorthand" interpreter:</h4>
+
+<p>
+  Emphasis's animation system is powered by Greensock's <a href="http://greensock.com/tweenmax">TweenMax JS library</a>, but with a twist.<br>
+  Instead of allowing the user to write (possibly) malicious Javascript, the user writes "Shorthand"<br>
+  separated by semicolons, which then is converted by the interpreter into secure Javascript.
+</p>
+<p>
+  More types of animation and interactivity will be supported in the future!
+</p>
+<p>
+  <strong>Please note:</strong> if you are animating an element, make sure to set its positon to relative, fixed, or absolute.
+</p>
+
+
+<h4>Currently supported commands:</h4>
+
+<p>
+  <strong>animate</strong> - for making things move or change transparency<br>
+  <strong>onclick, onmouseup, onmousedown, onmouseover, onmouseout</strong> - for hiding and showing things only
+</p>
+
+<h4>Animation:</h4>
+
+<p><img id="cat1" class="example" src="assets\cat_objects.png"></p>
+
+<p>
+  <strong>Shorthand:</strong><br>
+  animate; time: 1; left: 200; repeat: -1, yoyo: true;
+</p>
+
+<h4>Onclick (with 2 elements):</h4>
+
+<p><img id="wizard" class="example" src="assets\wizard.png"></p>
+<p><img id="cat2" class="example-hide" src="assets\cat_objects.png"></p>
+
+<p>
+  <strong>Shorthand for "wizard" element:</strong><br>
+  onclick; wizard: hide; cats: show;
+</p>
+
+<p>
+  <strong>Shorthand for "cat" element:</strong><br>
+  onclick; wizard: show; cats: hide;<br>
+  <strong>Custom CSS for "cat" element:</strong><br>
+  display: none;
+</p>
+
+<script>
+  window.onload = function() {
+    var cat1 = document.getElementById("cat1");
+    TweenMax.to(cat1, 1, {left: 200,repeat: -1,yoyo: true});
+    var cat2 = document.getElementById("cat2");
+    cat2.onclick = function() {wizard.style.display = 'inline-block'; cat2.style.display = 'none';}
+    var wizard = document.getElementById("wizard");
+    wizard.onclick = function() {wizard.style.display = 'none'; cat2.style.display = 'inline-block';}
+  }
+</script>
