@@ -64,6 +64,15 @@ textarea {
   border-color: #d31b36;
 }
 
+.about-avatar {
+  max-width: 180px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #f0f0f0;
+  float: right;
+
+}
+
 button, .button {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 0.8em;
@@ -118,6 +127,17 @@ button:hover, .button:hover, button:active, .button:hover, button:focus, .button
   display: table-cell;
   width: 200px;
   padding: 10px;
+}
+
+.example {
+  position: relative;
+  max-width: 100px;
+}
+
+.example-hide {
+  position: relative;
+  max-width: 100px;
+  display: none;
 }
 
 .form-inputs {

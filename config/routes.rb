@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :documentation, only: :index
+
   root "comics#index"
 end
