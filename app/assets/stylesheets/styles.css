@@ -65,12 +65,11 @@ textarea {
 }
 
 .about-avatar {
-  max-width: 180px;
-  margin-right: 10px;
   border-radius: 5px;
   border: 1px solid #f0f0f0;
   float: right;
-
+  max-width: 180px;
+  margin-right: 10px;
 }
 
 button, .button {
