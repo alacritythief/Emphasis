@@ -11,8 +11,7 @@ EMPHASIS TODO List
 ------------------
 
 * E-Mail verification
-* Documentation for custom element shorthand
-* Polish and optimization
+* More polish and optimization
 
 
 EXTRA:
@@ -45,6 +44,7 @@ COMPLETED
 * Element script interpreter via custom decorator (coverts user shorthand to whitelisted JS)
 * JS mouse events supported for only hiding and showing images
 * Contents page count bug fixed
+* About/Documentation page
 
 
 CURRENT ER DIAGRAM
