@@ -54,7 +54,7 @@ class ElementDecorator < Draper::Decorator
     commands_array = []
 
     raw_code = object.js
-    script = raw_code.gsub(/; /, ';').gsub(/: /, ':').gsub(/\r\n/,"").split(";")
+    script = raw_code.gsub(/\,/,"").gsub(/; /, ';').gsub(/: /, ':').gsub(/\r\n/,"").split(";")
 
     script.each do |command|
       if !command.include?("alert")
