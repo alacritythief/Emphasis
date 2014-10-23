@@ -57,7 +57,9 @@ class ElementDecorator < Draper::Decorator
     script = raw_code.gsub(/; /, ';').gsub(/: /, ':').gsub(/\r\n/,"").split(";")
 
     script.each do |command|
-      commands_array << command.split(":")
+      if !command.include?("alert")
+        commands_array << command.split(":")
+      end
     end
     commands_array
   end
